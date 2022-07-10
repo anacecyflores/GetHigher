@@ -79,8 +79,4 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/jobSearch', (req, res) => {
-  res.render('jobSearch');
-});
-
 module.exports = router;
