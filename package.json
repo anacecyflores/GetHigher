@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seed": "node seeds/seed.js",
-    "api": "node controllers/api/jobsFetch"
+    "api": "node controllers/api/jobsFetch",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
+    "nodemon": "^2.0.19",
     "prettier": "^2.1.2"
   }
 }

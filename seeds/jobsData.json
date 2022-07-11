@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Web Developer",
+    "employer": "Apple",
+    "location_city": "Miami",
+    "location_state": "FL",
+    "publishing_site": "Indeed"
+  },
+  {
+    "title": "Software Engineer",
+    "employer": "Microsoft",
+    "location_city": "San Diego",
+    "location_state": "CA",
+    "publishing_site": "LinkedIn"
+  },
+  {
+    "title": "Programmer",
+    "employer": "IBM",
+    "location_city": "Seattle",
+    "location_state": "WA",
+    "publishing_site": "Glassdoor"
+  }
+]
