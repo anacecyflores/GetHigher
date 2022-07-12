@@ -2,20 +2,23 @@ const router = require('express').Router();
 const { Career, User } = require('../models');
 // const withAuth = require('../utils/auth');
 
+//main page route
+
 router.get('/', async (req, res) => {
+  console.log(req);
   try {
     // Get all jobs and JOIN with user data
     const jobsData = await Career.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
     });
 
     // Serialize data so the template can read it
-    const jobs = jobsData.map((jobs) => Career.get({ plain: true }));
+    const jobs = jobsData.map((job) => job.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
@@ -39,16 +42,60 @@ router.get('/jobs/:id', async (req, res) => {
     });
 
     //plain true is supposed to return only the first record of result set
-    const jobs = jobsData.get({ plain: false });
+    const job = jobsData.get({ plain: false });
 
     res.render('jobs', {
-      ...jobs,
+      ...job,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+//----------------------------
+//--------jobs ROUTE----------
+//----------------------------
+
+//get job list
+router.get('/jobs', (req, res) =>
+  Career.findAll({ raw: true })
+    .then((jobs) => {
+      res.render('jobs', {
+        jobs: jobs,
+      });
+    })
+    .catch((err) => console.log(err))
+);
+
+//Add jobs
+router.get('/add', (req, res) => {
+  const data = {
+    title: 'Network Admin',
+    employer: 'Dell',
+    location_city: 'Los Angeles',
+    location_state: 'CA',
+    publishing_site: 'Indeed',
+  };
+
+  let { title, employer, location_city, location_state, publishing_site } =
+    data;
+
+  //insert into table
+  Career.create({
+    title: title,
+    employer: employer,
+    location_city: location_city,
+    location_state: location_state,
+    publishing_site,
+  })
+    .then((jobs) => res.redirect('/jobs'))
+    .catch((err) => console.log(err));
+});
+
+//----------------------------
+//--------jobs ROUTE end------
+//----------------------------
 
 // Use withAuth middleware to prevent access to route
 // router.get('/profile', withAuth, async (req, res) => {

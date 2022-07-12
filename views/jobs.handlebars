@@ -1,4 +1,4 @@
-<div class="row">
+{{!-- <div class="row">
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
   </div>
@@ -45,5 +45,29 @@
   {{/if}}
 </div>
 
-<script src="./js/jobs.js"></script>
+<script src="./js/jobs.js"></script> --}}
+
+<section id="jobs" class="container">
+    <h1>All Jobs</h1>
+
+  {{#each jobs}}
+  <div class="job">
+      <h3>{{title}}</h3>
+      <p>{{employer}}</p>
+      <ul>
+        <li>City: {{location_city}}</li>
+        <li>State: {{location_state}}</li>
+        <li><a href="#" class="btn btn-reverse">Apply Now</a></li>
+      </ul>
+      <div class="tech">
+        <small>Listed by: <span>{{publishing_site}}</span></small>
+      </div>
+    </div>
+
+  {{else}}
+  <p>no jobs available</p>
+  {{/each}}
+
+
+  </section>
 
