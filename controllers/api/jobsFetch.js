@@ -1,7 +1,7 @@
-const router = require('express').Router();
-const { Jobs } = require('../../models');
+// const router = require('express').Router();
+// const { Jobs } = require('../../models');
 const axios = require('axios');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
 let position = 'Web Developer';
 let location = 'Miami';
