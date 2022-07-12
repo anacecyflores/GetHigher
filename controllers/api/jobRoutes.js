@@ -1,38 +1,53 @@
 const router = require('express').Router();
-const { Job } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Career } = require('../../models');
+// const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
-  try {
-    const newJob = await Job.create({
-      ...req.body,
-      title: req.session.title,
-    });
+//withAuth will need to be added for login only jobs listing
 
-    res.status(200).json(newJob);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+router.get('/', (req, res) =>
+  Career.findAll()
+    .then((jobs) => {
+      console.log(jobs);
+      console.log(req);
+      res.sendStatus(200);
+    })
+    .catch((err) => console.log(err))
+);
 
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const JobData = await Job.destroy({
-      where: {
-        id: req.params.id,
-        title: req.session.title,
-      },
-    });
+// router.post('/', async (req, res) => {
+//   console.log(req, res);
+//   try {
+//     const newJob = await Job.create({
+//       ...req.body,
+//       // title: req.session.title,
+//     });
 
-    if (!JobData) {
-      res.status(404).json({ message: 'No job found with this id!' });
-      return;
-    }
+//     res.status(200).json(newJob);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
-    res.status(200).json(JobData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//withAuth will need to be added for login only jobs list deletes
+
+// router.delete('/:id', async (req, res) => {
+//   try {
+//     const jobsData = await Job.destroy({
+//       where: {
+//         id: req.params.id,
+//         // title: req.session.title,
+//       },
+//     });
+
+//     if (!jobsData) {
+//       res.status(404).json({ message: 'No job found with this id!' });
+//       return;
+//     }
+
+//     res.status(200).json(jobsData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

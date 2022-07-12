@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Job, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { Career, User } = require('../models');
+// const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Get all jobs and JOIN with user data
-    const jobsData = await Job.findAll({
+    const jobsData = await Career.findAll({
       include: [
         {
           model: User,
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const jobs = jobsData.map((jobs) => jobs.get({ plain: true }));
+    const jobs = jobsData.map((jobs) => Career.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 
 router.get('/jobs/:id', async (req, res) => {
   try {
-    const jobsData = await Job.findByPk(req.params.id, {
+    const jobsData = await Career.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -56,7 +56,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Job }],
+      include: [{ model: Career }],
     });
 
     const user = userData.get({ plain: true });
