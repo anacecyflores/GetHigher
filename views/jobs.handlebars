@@ -31,7 +31,7 @@
   <div class="col-md-6 jobs-list">
     <h3>Current Jobs:</h3>
 
-    {{#each jobs as |job|}}
+    {{#each jobs}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/jobs/"{{jobs.id}}>{{jobs.title}}</a></h4>
@@ -45,4 +45,4 @@
   {{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="./js/jobs.js"></script>
