@@ -1,14 +1,18 @@
 const router = require('express').Router();
-const { Job } = require('../../models');
+const { Career } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 //withAuth will need to be added for login only jobs listing
 
-router.get('/', (req, res) => {
-  console.log(jobs);
-  console.log(req);
-  res.sendStatus(200);
-});
+router.get('/', (req, res) =>
+  Career.findAll()
+    .then((jobs) => {
+      console.log(jobs);
+      console.log(req);
+      res.sendStatus(200);
+    })
+    .catch((err) => console.log(err))
+);
 
 // router.post('/', async (req, res) => {
 //   console.log(req, res);
