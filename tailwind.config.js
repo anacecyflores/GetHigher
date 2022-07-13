@@ -2,10 +2,16 @@
 module.exports = {
   content: [
     './views/layouts/main.handlebars',
-    './js/logout.js'
+    './js/logout.js',
+    './views/login.handlebars',
+    './js/login.js',
+
   ],
   theme: {
+    colors: {
+  
+    },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms'),],
 }

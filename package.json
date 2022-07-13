@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.2",
     "autoprefixer": "^10.4.7",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.0",
