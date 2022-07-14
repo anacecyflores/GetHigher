@@ -130,6 +130,15 @@ router.get('/login', (req, res) => {
 //profile page
 router.get('/profile', (req, res) => res.render('profile'));
 
+//calendar page
+router.get('/calendar', (req, res) => res.render('calendar'));
+
+//quiz page
+router.get('/quiz', (req, res) => res.render('quiz'));
+
+//about page
+router.get('/about', (req, res) => res.render('about'));
+
 //quick search page
 router.get('/quicksearch', (req, res) => res.render('quicksearch'));
 
