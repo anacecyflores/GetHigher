@@ -53,15 +53,15 @@
                 <div class="hidden sm:block sm:ml-6">
                   <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                    <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
 
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</a>
+                    <a href="/profile" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</a>
 
                     <a href="/jobs" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Jobs</a>
 
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+                    <a href="/calendar" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
 
-                    <a href="" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="/about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
 
                     <a href="/quicksearch" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Quick Search</a>
 
@@ -72,7 +72,7 @@
               <!-- Conditionally render login or logout links -->
               {{#if logged_in}}
               <a href="/profile" class="inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">profile</a> |
-              <button class="no-button inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50" id="logout">logout</button>
+              <button class="no-button inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50" id="logout">Logout</button>
               {{else}}
               <a href="/login" class="inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Log In</a>
               {{/if}}
