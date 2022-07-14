@@ -1,4 +1,4 @@
-<section id="search" class="search-wrap">
+{{!-- <section id="search" class="search-wrap">
     <h1>Quick Search for Jobs</h1>
     <form action="/jobs/search" class="search-form">
       <i class="fas fa-search"></i>
@@ -6,4 +6,28 @@
       <input type="search" name="locationSearch" placeholder="Location">
       <input type="submit" value="Search">
     </form>
-  </section>
+  </section> --}}
+  <div class='row'>
+        <header class='row text-center bg-dark text-white'>
+            <h1>Job Dashboard</h1>
+        </header>
+    </div>
+
+    <main class='row'>
+        <div class='column col-3'>
+            <p class='search-header fs-3'>Search for a City:</p>
+
+            <input id='cityInput' type='text' name='city' class='form-control' placeholder='City Name' />
+            <div id='display'></div>
+            <span id='inputError'></span>
+            <div id='recentHistory' class='recentHistory'>
+                <button class='submitBtn' type='button' id='submitBtn'>Search Jobs</button>
+            </div>
+            <ul id='history-list' class='list-group'></ul>
+        </div>
+
+        <div id='daily-forecast' class='column col-9 card'>
+            <h2 id='dailyTitle'></h2>
+            <ul id='dailyConditions'></ul>
+        </div>
+<script src="./js/jobs.js"></script>
