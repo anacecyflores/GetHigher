@@ -1,27 +1,4 @@
-$(document).ready(function () {
-  $('#five-day-forecast').hide();
-  $('#daily-forecast').hide();
-
-  // var cityHistory = JSON.parse(localStorage.getItem('historyKey')) || [];
-
-  if (cityHistory !== null) {
-    cityHistory.forEach(function (cityHistory) {
-      $('.recentHistory').append(
-        $(
-          `<button id="recBtn" class= "recBtn list-group-item list-group-item-action">${cityHistory}</button>`
-        )
-      );
-    });
-  }
-});
-
-var cityHistory = [];
-
 function searchWeather(city) {
-  var apiKey = 'b6a631faf48ec36736fa91299da2f0a2';
-
-  var cityHistory = JSON.parse(localStorage.getItem('historyKey')) || [];
-
   // capitalize each first letter
   function capitalize(city) {
     const words = city.split(' ');
@@ -42,20 +19,6 @@ function searchWeather(city) {
 
   //check for empty field
   if (cityInput != '') {
-    //check for duplicate search before putting into array
-    if (!cityHistory.includes(cityInput)) {
-      cityHistory.push(cityInput);
-      var cityList = $(
-        `<button class="recBtn list-group-item list-group-item-action">${cityInput}</button>`
-      );
-      // console.log(cityList);
-      $('.recentHistory').append(cityList);
-    }
-    localStorage.setItem('historyKey', JSON.stringify(cityHistory));
-    // console.log(cityHistory.length);
-
-    $('#daily-forecast').show();
-
     jobCast(cityInput);
 
     function jobCast(city) {
@@ -85,51 +48,12 @@ function searchWeather(city) {
         $('#dailyConditions').append($(`<li>${dailyCity}</li>`));
       });
     }
-
-    // function fiveCast() {
-    //   //5 DAYS
-    //   console.log(cityInput);
-    //   $.ajax({
-    //     type: 'GET',
-    //     url: `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&units=imperial&APPID=${apiKey}`,
-    //     id: 'city',
-    //   }).then(function (data) {
-    //     // console.log(data.list);
-    //     // console.log(data.list[0]);
-    //     // console.log(data.list[0].dt);
-    //     // console.log(data.list[0].main.temp);
-
-    //     for (i = 10; i < 42; i += 7) {
-    //       var forecastCard = $('<div class = "card col">');
-    //       var forecastTitle = $('<p class = "castDate">');
-    //       var forecastTemp = $('<p class = "temp">');
-    //       var forecastWind = $('<p class = "wind">');
-    //       var forecastHumidity = $('<p class = "humid">');
-
-    //       var date = new Date((data.list[i].dt *= 1000));
-    //       // console.log(date);
-
-    //       var currentTime = moment(date).format('MM/DD/YYYY');
-
-    //       iconData = `<img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}.png"/>`;
-    //       forecastTitle.html(`${currentTime} ${iconData}`);
-    //       forecastTemp.text(`Temperature: ${data.list[i].main.temp}`);
-    //       forecastWind.text(`Wind: ${data.list[i].wind.speed}`);
-    //       forecastHumidity.text(`Humidity: ${data.list[i].main.humidity}`);
-
-    //       $(`.forecastRow`).append(forecastCard);
-    //       forecastCard.append(forecastTitle);
-    //       forecastCard.append(forecastTemp);
-    //       forecastCard.append(forecastWind);
-    //       forecastCard.append(forecastHumidity);
-    //     }
-    //   });
-    // }
   } else {
-    $('#inputError').text('Please enter a city');
+    $('#inputError').text('Please enter a location');
   }
 }
 
+//search by clicking
 $('#submitBtn').click(function () {
   var cityInputField = $('#cityInput').val().trim().toLowerCase();
   searchWeather(cityInputField);
@@ -140,15 +64,5 @@ $('#cityInput').keypress(function (e) {
   if (e.which === 13) {
     var cityInputEnter = $('#cityInput').val().trim().toLowerCase();
     searchWeather(cityInputEnter);
-  }
-});
-
-$('#recentHistory').on('click', (e) => {
-  var element = e.target;
-  // console.log(element);
-  var elementHistory = $(element).html();
-  // console.log(elementHistory);
-  if (elementHistory !== 'Search') {
-    searchWeather(elementHistory);
   }
 });
