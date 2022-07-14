@@ -35,6 +35,20 @@
         {{else}}
         <a href="/login" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Log In</a>
         {{/if}}
+        <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/profile">Profile</a>
+        </li>
+        <li>
+          <a href="/jobs">All Jobs</a>
+        </li>
+        <li>
+          <a href="/quicksearch">Quick Search</a>
+        </li>
+      </ul>
       </nav>
     </header>
     <main>
@@ -48,8 +62,9 @@
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src="../../public/js/logout.js"></script>
   {{/if}}
+  <script src="../../public/js/jobs.js"></script>
 </body>
 
 </html>

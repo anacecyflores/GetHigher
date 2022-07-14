@@ -127,4 +127,10 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//profile page
+router.get('/profile', (req, res) => res.render('profile'));
+
+//quick search page
+router.get('/quicksearch', (req, res) => res.render('quicksearch'));
+
 module.exports = router;
