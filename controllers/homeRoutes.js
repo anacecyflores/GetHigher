@@ -142,4 +142,7 @@ router.get('/about', (req, res) => res.render('about'));
 //quick search page
 router.get('/quicksearch', (req, res) => res.render('quicksearch'));
 
+//quick search page
+router.get('/weather', (req, res) => res.render('weather'));
+
 module.exports = router;
