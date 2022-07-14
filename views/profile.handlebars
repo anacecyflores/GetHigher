@@ -6,38 +6,45 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Personalize your profile:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-profile-form">
       <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="profile-name">Full Name:</label>
+        <input class="form-input" type="text" id="profile-name" name="profile-name" />
       </div>
       <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
+        <label for="profile-bday">Birthdate:</label>
+        <input class="form-input" type="date" id="profile-bday" name="profile-bday" />
       </div>
       <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="profile-skills">Skills:</label>
+        <input class="form-input" type="text" id="profile-skills" name="profile-skills"></input>
       </div>
+         <label for="profile-name">About Me:</label>
+        <input class="form-input" type="text" id="profile-about" name="profile-about" />
+      </div>
+ <label for="profile-name">Upload Resume:</label>
+        <input class="form-input" type="file" id="profile-resume" name="profile-resume" />
+      </div>
+
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Update Profile</button>
       </div>
     </form>
   </div>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+  {{#if profiles.length}}
+  <div class="col-md-6 profile-list">
+    <h3>Current Profiles:</h3>
 
-    {{#each projects as |project|}}
+    {{#each profiles as |profile|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h4><a href="/profile/{{profile.id}}">{{profile.name}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{profile.id}}">DELETE Profile</button>
       </div>
     </div>
     {{/each}}
