@@ -109,6 +109,34 @@
             </div>
         </nav>
       </div>
+<<<<<<< HEAD
+=======
+    </div>
+
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">profile</a> |
+        <button class="no-button inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50" id="logout">logout</button>
+        {{else}}
+        <a href="/login" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Log In</a>
+        {{/if}}
+        <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/profile">Profile</a>
+        </li>
+        <li>
+          <a href="/jobs">All Jobs</a>
+        </li>
+        <li>
+          <a href="/quicksearch">Quick Search</a>
+        </li>
+      </ul>
+      </nav>
+>>>>>>> 00c6f15cadbf3b1d77b748dda513a581cb7a88b7
     </header>
 
   
@@ -120,11 +148,22 @@
     <footer>
         <!-- This example requires Tailwind CSS v2.0+ -->
     </footer>
+<<<<<<< HEAD
   
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
   </body>
+=======
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="../../public/js/logout.js"></script>
+  {{/if}}
+  <script src="../../public/js/jobs.js"></script>
+</body>
+>>>>>>> 00c6f15cadbf3b1d77b748dda513a581cb7a88b7
 
 </html>

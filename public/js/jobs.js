@@ -1,21 +1,21 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#jobs-title').value.trim();
-  const needed_employer = document.querySelector('#jobs-employer').value.trim();
-  const description = document.querySelector('#jobs-desc').value.trim();
+  const position = document.querySelector('#positionSearch').value.trim();
+  const location = document.querySelector('#locationSearch').value.trim();
 
-  if (name && needed_employer && description) {
-    const response = await fetch(`/api/jobs`, {
+  if (position && location) {
+    const response = await fetch('api/jobsFetch', {
       method: 'POST',
-      body: JSON.stringify({ name, needed_employer, description }),
+      body: JSON.stringify({ position, location }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      // document.location.replace('/quicksearch');
+      document.location.reload();
     } else {
       alert('Failed to find jobs');
     }

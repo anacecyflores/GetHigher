@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Career } = require('../../models');
+const { Career, User } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 //withAuth will need to be added for login only jobs listing
