@@ -40,12 +40,18 @@ function searchWeather(city) {
         var dailyTitle = `Title: ${response.data[0].job_title}`;
         var dailyEmployer = `Employer: ${response.data[0].employer_name}`;
         var dailyCity = `City: ${response.data[0].job_city}`;
+        var dailyState = `State: ${response.data.data[0].job_state}`;
+        var dailySite = `Publishing Site: ${response.data.data[0].job_publisher}`;
+        var dailyLink = `Publishing Site: ${response.data.data[0].job_apply_link}`;
 
         console.log(dailyTitle);
 
         $('#dailyConditions').append($(`<li>${dailyTitle}</li>`));
         $('#dailyConditions').append($(`<li>${dailyEmployer}</li>`));
         $('#dailyConditions').append($(`<li>${dailyCity}</li>`));
+        $('#dailyConditions').append($(`<li>${dailyState}</li>`));
+        $('#dailyConditions').append($(`<li>${dailySite}</li>`));
+        $('#dailyConditions').append($(`<li>${dailyLink}</li>`));
       });
     }
   } else {
