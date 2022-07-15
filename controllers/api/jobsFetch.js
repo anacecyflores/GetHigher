@@ -23,8 +23,8 @@ const options = {
 axios
   .request(options)
   .then(function (response) {
-    console.log(response.data);
-    // console.log(response.data.data[0]);
+    // console.log(response.data);
+    console.log(response.data.data[0]);
     // console.log(response.data.data[0].job_title);
     // console.log(response.data.data[0].employer_name);
     // console.log(response.data.data[0].job_city);
