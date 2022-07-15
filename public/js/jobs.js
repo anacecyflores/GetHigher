@@ -35,23 +35,43 @@ function searchWeather(city) {
       };
 
       $.ajax(settings).done(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
 
-        var dailyTitle = `Title: ${response.data[0].job_title}`;
-        var dailyEmployer = `Employer: ${response.data[0].employer_name}`;
-        var dailyCity = `City: ${response.data[0].job_city}`;
-        var dailyState = `State: ${response.data[0].job_state}`;
-        var dailySite = `Publishing Site: ${response.data[0].job_publisher}`;
-        var dailyLink = `Publishing Site: ${response.data[0].job_apply_link}`;
+        const dailyTitle = `${response.data[0].job_title}`;
+        const dailyEmployer = `${response.data[0].employer_name}`;
+        const dailyCity = `${response.data[0].job_city}`;
+        const dailyState = `${response.data[0].job_state}`;
+        const dailyEmpType = `${response.data[0].job_employment_type}`;
+        const dailySite = `${response.data[0].job_publisher}`;
+        const dailyLink = `${response.data[0].job_apply_link}`;
 
-        console.log(dailyTitle);
-
-        $('#dailyConditions').append($(`<li>${dailyTitle}</li>`));
-        $('#dailyConditions').append($(`<li>${dailyEmployer}</li>`));
-        $('#dailyConditions').append($(`<li>${dailyCity}</li>`));
-        $('#dailyConditions').append($(`<li>${dailyState}</li>`));
-        $('#dailyConditions').append($(`<li>${dailySite}</li>`));
-        $('#dailyConditions').append($(`<li>${dailyLink}</li>`));
+        if (dailyTitle != 'null') {
+          $('#dailyConditions').append($(`<li>Title: ${dailyTitle}</li>`));
+        }
+        if (dailyEmployer != 'null') {
+          $('#dailyConditions').append(
+            $(`<li>Employer: ${dailyEmployer}</li>`)
+          );
+        }
+        if (dailyCity != 'null') {
+          $('#dailyConditions').append($(`<li>City: ${dailyCity}</li>`));
+        }
+        if (dailyState != 'null') {
+          $('#dailyConditions').append($(`<li>State: ${dailyState}</li>`));
+        }
+        if (dailyEmpType != 'null') {
+          $('#dailyConditions').append(
+            $(`<li>Employment Type: ${dailyEmpType}</li>`)
+          );
+        }
+        if (dailySite != 'null') {
+          $('#dailyConditions').append($(`<li>Site: ${dailySite}</li>`));
+        }
+        if (dailyLink != 'null') {
+          $('#dailyConditions').append(
+            $(`<li><a href="${dailyLink}">Link to Apply</a></li>`)
+          );
+        }
       });
     }
   } else {
