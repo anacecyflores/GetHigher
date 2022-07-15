@@ -49,42 +49,62 @@ function searchJobs(position, location) {
       };
 
       $.ajax(settings).done(function (response) {
-        // console.log(response.data);
+        console.log(response.data.length);
 
-        const dailyTitle = `${response.data[0].job_title}`;
-        const dailyEmployer = `${response.data[0].employer_name}`;
-        const dailyCity = `${response.data[0].job_city}`;
-        const dailyState = `${response.data[0].job_state}`;
-        const dailyEmpType = `${response.data[0].job_employment_type}`;
-        const dailySite = `${response.data[0].job_publisher}`;
-        const dailyLink = `${response.data[0].job_apply_link}`;
+        for (let i = 0; i < response.data.length; i++) {
+          let jobCard = $('<div class = "card col">');
+          let jobTitle = $('<p class = "job-title">');
+          let jobEmployer = $('<p class = "job-employer">');
+          let jobCity = $('<p class = "job-city">');
+          let jobState = $('<p class = "job-state">');
+          let jobEmpType = $('<p class = "job-emp-type">');
+          let jobSite = $('<p class = "job-site">');
+          let jobLink = $('<p class = "job-link">');
 
-        if (dailyTitle != 'null') {
-          $('#dailyConditions').append($(`<li>Title: ${dailyTitle}</li>`));
-        }
-        if (dailyEmployer != 'null') {
-          $('#dailyConditions').append(
-            $(`<li>Employer: ${dailyEmployer}</li>`)
-          );
-        }
-        if (dailyCity != 'null') {
-          $('#dailyConditions').append($(`<li>City: ${dailyCity}</li>`));
-        }
-        if (dailyState != 'null') {
-          $('#dailyConditions').append($(`<li>State: ${dailyState}</li>`));
-        }
-        if (dailyEmpType != 'null') {
-          $('#dailyConditions').append(
-            $(`<li>Employment Type: ${dailyEmpType}</li>`)
-          );
-        }
-        if (dailySite != 'null') {
-          $('#dailyConditions').append($(`<li>Site: ${dailySite}</li>`));
-        }
-        if (dailyLink != 'null') {
-          $('#dailyConditions').append(
-            $(`<li><a href="${dailyLink}">Link to Apply</a></li>`)
-          );
+          jobTitle.text(`${response.data[i].job_title}`);
+          jobEmployer.text(`${response.data[i].employer_name}`);
+          jobCity.text(`${response.data[i].job_city}`);
+          jobState.text(`${response.data[i].job_state}`);
+          jobEmpType.text(`${response.data[i].job_employment_type}`);
+          jobSite.text(`${response.data[i].job_publisher}`);
+          jobLink.text(`${response.data[i].job_apply_link}`);
+
+          $(`.forecastRow`).append(jobCard);
+          jobCard.append(jobTitle);
+          jobCard.append(jobEmployer);
+          jobCard.append(jobCity);
+          jobCard.append(jobState);
+          jobCard.append(jobEmpType);
+          jobCard.append(jobSite);
+          jobCard.append(jobLink);
+
+          // if (dailyTitle != 'null') {
+          //   $('#dailyConditions').append($(`<li>Title: ${dailyTitle}</li>`));
+          // }
+          // if (dailyEmployer != 'null') {
+          //   $('#dailyConditions').append(
+          //     $(`<li>Employer: ${dailyEmployer}</li>`)
+          //   );
+          // }
+          // if (dailyCity != 'null') {
+          //   $('#dailyConditions').append($(`<li>City: ${dailyCity}</li>`));
+          // }
+          // if (dailyState != 'null') {
+          //   $('#dailyConditions').append($(`<li>State: ${dailyState}</li>`));
+          // }
+          // if (dailyEmpType != 'null') {
+          //   $('#dailyConditions').append(
+          //     $(`<li>Employment Type: ${dailyEmpType}</li>`)
+          //   );
+          // }
+          // if (dailySite != 'null') {
+          //   $('#dailyConditions').append($(`<li>Site: ${dailySite}</li>`));
+          // }
+          // if (dailyLink != 'null') {
+          //   $('#dailyConditions').append(
+          //     $(`<li><a href="${dailyLink}">Link to Apply</a></li>`)
+          //   );
+          // }
         }
       });
     }
