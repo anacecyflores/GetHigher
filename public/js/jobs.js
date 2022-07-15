@@ -60,6 +60,7 @@ function searchJobs(position, location) {
           let jobEmpType = $('<p class = "job-emp-type">');
           let jobSite = $('<p class = "job-site">');
           let jobLink = $('<p class = "job-link">');
+          let jobBtn = $('<button type=button id=jobBtn>Favorite</button>');
 
           jobTitle.text(`${response.data[i].job_title}`);
           jobEmployer.text(`${response.data[i].employer_name}`);
@@ -77,6 +78,7 @@ function searchJobs(position, location) {
           jobCard.append(jobEmpType);
           jobCard.append(jobSite);
           jobCard.append(jobLink);
+          jobCard.append(jobBtn);
 
           // if (dailyTitle != 'null') {
           //   $('#dailyConditions').append($(`<li>Title: ${dailyTitle}</li>`));
