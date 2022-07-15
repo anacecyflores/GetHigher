@@ -1,7 +1,7 @@
-function searchWeather(city) {
+function searchJobs(position, location) {
   // capitalize each first letter
-  function capitalize(city) {
-    const words = city.split(' ');
+  function capitalize(position) {
+    const words = position.split(' ');
     const output = words.map((word) => {
       const firstLetter = word.substring(0, 1).toUpperCase();
       const rest = word.substring(1);
@@ -11,21 +11,35 @@ function searchWeather(city) {
     return output.join(' ');
   }
 
-  var cityInput = capitalize(city);
+  let positionInput = capitalize(position);
+
+  // capitalize each first letter
+  function capitalize(location) {
+    const words = location.split(' ');
+    const output = words.map((word) => {
+      const firstLetter = word.substring(0, 1).toUpperCase();
+      const rest = word.substring(1);
+
+      return `${firstLetter}${rest}`;
+    });
+    return output.join(' ');
+  }
+
+  let locationInput = capitalize(location);
 
   //clear previous search
   $('#dailyConditions').empty();
   $('.forecastRow').empty();
 
   //check for empty field
-  if (cityInput != '') {
-    jobCast(cityInput);
+  if (positionInput != '' && locationInput != '') {
+    jobCast(positionInput, locationInput);
 
-    function jobCast(city) {
+    function jobCast(location) {
       const settings = {
         async: true,
         crossDomain: true,
-        url: `https://google-jobs-search.p.rapidapi.com/search?query=Programmer%20in%20${city}&num_pages=1`,
+        url: `https://google-jobs-search.p.rapidapi.com/search?query=${position}%20in%20${location}&num_pages=1`,
         method: 'GET',
         headers: {
           'X-RapidAPI-Key':
@@ -75,20 +89,31 @@ function searchWeather(city) {
       });
     }
   } else {
-    $('#inputError').text('Please enter a location');
+    if (position == '' && location == '') {
+      $('#inputError').text('Please enter a position and a location');
+    }
+    if (position != '' && location == '') {
+      $('#inputError').text('Please enter a position');
+    }
+    if (position == '' && location != '') {
+      $('#inputError').text('Please enter a location');
+    }
   }
 }
 
 //search by clicking
 $('#submitBtn').click(function () {
-  var cityInputField = $('#cityInput').val().trim().toLowerCase();
-  searchWeather(cityInputField);
+  const locationInputField = $('#cityInput').val().trim().toLowerCase();
+  const positionInputField = $('#positionInput').val().trim().toLowerCase();
+
+  searchJobs(locationInputField, positionInputField);
 });
 
 //search with enter key
 $('#cityInput').keypress(function (e) {
   if (e.which === 13) {
-    var cityInputEnter = $('#cityInput').val().trim().toLowerCase();
-    searchWeather(cityInputEnter);
+    const locationInputEnter = $('#cityInput').val().trim().toLowerCase();
+    const positionInputEnter = $('#positionInput').val().trim().toLowerCase();
+    searchJobs(locationInputEnter, positionInputEnter);
   }
 });
