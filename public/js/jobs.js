@@ -35,7 +35,7 @@ function searchJobs(position, location) {
   if (positionInput != '' && locationInput != '') {
     jobCast(positionInput, locationInput);
 
-    function jobCast(location) {
+    function jobCast(position, location) {
       const settings = {
         async: true,
         crossDomain: true,
