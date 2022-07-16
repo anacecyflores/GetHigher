@@ -92,9 +92,28 @@ function searchJobs(position, location) {
           jobCard.append(jobEmpType);
           jobCard.append(jobSite);
           jobCard.append(jobLink);
+          // jobCard.append(
+          //   `<button type="button" id="${jId} jobBtn" value = "${jTitle}">Favorite</button><button type="button" id="${jId} jobBtn" value = "${jLink}">favorite</button>`
+          // );
+
           jobCard.append(
-            `<button type="button" id="${jId} jobBtn" value = "${jTitle}">Favorite</button>`
+            `<button type="button" id="${jId} jobBtn" value = " Job Title: ${
+              jTitle +
+              ' ' +
+              'Link: ' +
+              jLink +
+              ' ' +
+              'Location:' +
+              ' ' +
+              jCity +
+              ',' +
+              jState
+            }">FAVORITE</button>`
           );
+
+          // jobCard.append(
+          //   `<button type="button" id="${jId} jobBtn" value = "title: ${jTitle}, employer: ${jEmployer}, location_city: ${jCity}, location_state: ${jState} ">Favorite</button>`
+          // );
 
           // listJobs(
           //   jobTitle,
@@ -126,6 +145,7 @@ function searchJobs(position, location) {
           // }
           //---------post db fetch------------
         }
+        jobWait();
       });
     }
   } else {
@@ -180,37 +200,60 @@ $('#cityInput').keypress(function (e) {
 
 //-------------------------------------------
 
-let jobList = document.querySelector('.forecastRow');
+function jobWait() {
+  let jobList = document.querySelectorAll('.card button');
 
-jobList.addEventListener('click', function (e) {
-  e.preventDefault();
+  // jobList.forEach(addEventListener)
+  jobList.addEventListener('click', function (e) {
+    e.preventDefault();
 
-  let element = e.target;
-  let jobEl = $(element).val();
-  console.log(jobEl);
+    console.log(document.querySelectorAll('.card p[value="employer_name"]'));
+    console.log(
+      document.querySelectorAll('.card p[value="employer_name"]')[0].innerText
+    );
 
-  // let jobElVal = $(this).val();
-  // console.log(jobElVal);
+    // array.forEach((element) => {});
 
-  //save input to localStorage (key + value)
-  // let k = $(this).parent().children('.job-employer').attr('id'); //The whole family is here
-  // let v = $(this).parent().children('.description').val();
+    document.querySelector('.job-title');
+    console.log(jobList);
 
-  // const response = fetch(`/api/qs`, {
-  //   method: 'POST',
-  //   body: JSON.stringify({
-  //     title: jobEl,
-  //   }),
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  // });
-});
+    let element = e.target;
+    console.log(element);
 
-// async function jobFormHandler(e) {
-//   e.preventDefault();
-// }
+    let jobEl = element.value;
+    let jobText = element.text;
+    // let parseJob = JSON.parse(jobEl);
+    // console.log(parseJob);
+    console.log(jobEl);
+    console.log(jobText);
+    // console.log(jobEl.length);
 
-// document
-//   .querySelector('.forecastRow')
-//   .addEventListener('submit', favFormHandler);
+    // let jobVal = { jobEl };
+    // console.log(jobVal);
+
+    // let jobElVal = $(this).val();
+    // console.log(jobElVal);
+
+    //save input to localStorage (key + value)
+    // let k = $(this).parent().children('.job-employer').attr('id'); //The whole family is here
+    // let v = $(this).parent().children('.description').val();
+
+    // const response = fetch(`/api/qs`, {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     title: jobEl,
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
+  });
+
+  // async function jobFormHandler(e) {
+  //   e.preventDefault();
+  // }
+
+  // document
+  //   .querySelector('.forecastRow')
+  //   .addEventListener('submit', favFormHandler);
+}
