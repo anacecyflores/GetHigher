@@ -7,10 +7,6 @@
     <title>Get Higher</title>
     <link rel="stylesheet" href="/css/output.css">
 
-    {{!-- calendar --}}
-    <link href='/Project_Calendar/assets/css/fullcalendar.css' rel='stylesheet' />
-    <link href='/Project_Calendar/assets/css/fullcalendar.print.css' rel='stylesheet' media='print' />
-    {{!-- end calendar --}}
   </head>
 
   <body class="h-full">
@@ -78,7 +74,7 @@
               <nav>
               <!-- Conditionally render login or logout links -->
               {{#if logged_in}}
-              <a href="/profile" class="inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">profile</a> |
+              <a href="/profile" class="inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Profile</a> |
               <button class="no-button inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50" id="logout">Logout</button>
               {{else}}
               <a href="/login" class="inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Log In</a>
@@ -128,13 +124,6 @@
     {{#if logged_in}}
     <script src="../../js/logout.js"></script>
     {{/if}}
-
-    <script src="/Project_Calendar/assets/css/fullcalendar.css" type="text/javascript"></script> 
-    <script src="/Project_Calendar/assets/css/fullcalendar.print"type="text/javascript"></script>
-
-    <script src="/Project_Calendar/assets/js/fullcalendar.js"type="text/javascript"></script>
-    <script src="/Project_Calendar/assets/js/fullcalendar.jquery-1.10.2.js"type="text/javascript"></script>
-    <script src="/Project_Calendar/assets/js/fullcalendar.jquery-ui.custom.min.js"type="text/javascript"></script>
 
   </body>
 </html>
