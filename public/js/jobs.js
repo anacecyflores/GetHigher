@@ -63,13 +63,17 @@ function searchJobs(position, location) {
           let jId = `j ${[i]}`;
 
           let jobCard = $('<div class = "card col">');
-          let jobTitle = $(`<p class = "job-title" value = ${jTitle}>`);
-          let jobEmployer = $(`<p class = "job-employer" value= ${jEmployer}>`);
-          let jobCity = $(`<p class = "job-city" value = ${jCity}>`);
-          let jobState = $(`<p class = "job-state" value = ${jState}>`);
-          let jobEmpType = $(`<p class = "job-emp-type" value = ${jEmpType}>`);
-          let jobSite = $(`<p class = "job-site" value = ${jSite}>`);
-          let jobLink = $(`<p class = "job-link" value = ${jLink}>`);
+          let jobTitle = $(`<p class = "job-title" value = "${jTitle}">`);
+          let jobEmployer = $(
+            `<p class = "job-employer" value= "${jEmployer}">`
+          );
+          let jobCity = $(`<p class = "job-city" value = "${jCity}">`);
+          let jobState = $(`<p class = "job-state" value = "${jState}">`);
+          let jobEmpType = $(
+            `<p class = "job-emp-type" value = "${jEmpType}">`
+          );
+          let jobSite = $(`<p class = "job-site" value = "${jSite}">`);
+          let jobLink = $(`<p class = "job-link" value = "${jLink}">`);
           // let jobBtn = $('<button type=button id=jobBtn>Favorite</button>');
 
           jobTitle.text(jTitle);
@@ -89,18 +93,18 @@ function searchJobs(position, location) {
           jobCard.append(jobSite);
           jobCard.append(jobLink);
           jobCard.append(
-            `<button type=button id=${jId}jobBtn value = ${jTitle}>Favorite</button>`
+            `<button type="button" id="${jId} jobBtn" value = "${jTitle}">Favorite</button>`
           );
 
-          listJobs(
-            jobTitle,
-            jobEmployer,
-            jobCity,
-            jobState,
-            jobEmpType,
-            jobSite,
-            jobLink
-          );
+          // listJobs(
+          //   jobTitle,
+          //   jobEmployer,
+          //   jobCity,
+          //   jobState,
+          //   jobEmpType,
+          //   jobSite,
+          //   jobLink
+          // );
 
           //---------post db fetch------------
           // const response = fetch(`/api/qs`, {
@@ -176,7 +180,7 @@ $('#cityInput').keypress(function (e) {
 
 //-------------------------------------------
 
-let jobList = document.getElementById('job-list');
+let jobList = document.querySelector('.forecastRow');
 
 jobList.addEventListener('click', function (e) {
   e.preventDefault();
@@ -184,6 +188,13 @@ jobList.addEventListener('click', function (e) {
   let element = e.target;
   let jobEl = $(element).val();
   console.log(jobEl);
+
+  // let jobElVal = $(this).val();
+  // console.log(jobElVal);
+
+  //save input to localStorage (key + value)
+  // let k = $(this).parent().children('.job-employer').attr('id'); //The whole family is here
+  // let v = $(this).parent().children('.description').val();
 
   // const response = fetch(`/api/qs`, {
   //   method: 'POST',
