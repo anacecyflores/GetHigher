@@ -1,19 +1,20 @@
 const router = require('express').Router();
 const { User, Career } = require('../../models');
 
-router.post('/', (req, res) => {
+router.post('/quicksearch', (req, res) => {
   console.log(req.body);
 
   Career.create({
     title: req.body.title,
     employer: req.body.employer,
-    job_city: req.body.job_city,
-    job_state: req.body.job_state,
+    location_city: req.body.location_city,
+    location_state: req.body.location_state,
     publishing_site: req.body.publishing_site,
     apply_link: req.body.apply_link,
   })
     .then((qsDB) => res.json(qsDB))
     .catch((err) => {
+      console.log('error caught');
       console.error(err);
       res.status(500).json(err);
     });

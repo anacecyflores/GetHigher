@@ -13,15 +13,15 @@ Career.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     employer: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     location_city: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     location_state: {
       type: DataTypes.STRING,

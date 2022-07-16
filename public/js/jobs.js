@@ -63,13 +63,13 @@ function searchJobs(position, location) {
           let jId = `j ${[i]}`;
 
           let jobCard = $('<div class = "card col">');
-          let jobTitle = $('<p class = "job-title">');
-          let jobEmployer = $('<p class = "job-employer">');
-          let jobCity = $('<p class = "job-city">');
-          let jobState = $('<p class = "job-state">');
-          let jobEmpType = $('<p class = "job-emp-type">');
-          let jobSite = $('<p class = "job-site">');
-          let jobLink = $('<p class = "job-link">');
+          let jobTitle = $(`<p class = "job-title" value = ${jTitle}>`);
+          let jobEmployer = $(`<p class = "job-employer" value= ${jEmployer}>`);
+          let jobCity = $(`<p class = "job-city" value = ${jCity}>`);
+          let jobState = $(`<p class = "job-state" value = ${jState}>`);
+          let jobEmpType = $(`<p class = "job-emp-type" value = ${jEmpType}>`);
+          let jobSite = $(`<p class = "job-site" value = ${jSite}>`);
+          let jobLink = $(`<p class = "job-link" value = ${jLink}>`);
           // let jobBtn = $('<button type=button id=jobBtn>Favorite</button>');
 
           jobTitle.text(jTitle);
@@ -90,6 +90,16 @@ function searchJobs(position, location) {
           jobCard.append(jobLink);
           jobCard.append(
             `<button type=button id=${jId}jobBtn value = ${jTitle}>Favorite</button>`
+          );
+
+          listJobs(
+            jobTitle,
+            jobEmployer,
+            jobCity,
+            jobState,
+            jobEmpType,
+            jobSite,
+            jobLink
           );
 
           //---------post db fetch------------
@@ -127,6 +137,26 @@ function searchJobs(position, location) {
   }
 }
 
+function listJobs(jobTitle, jobEmployer, jobCity, jobState, jobSite, jobLink) {
+  const response = fetch(`/api/qs/quicksearch`, {
+    method: 'POST',
+    body: JSON.stringify({
+      title: jobTitle,
+      employer: jobEmployer,
+      location_city: jobCity,
+      location_state: jobState,
+      publishing_site: jobSite,
+      apply_link: jobLink,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return response;
+  // if (response.ok) {
+  //   document.location.replace('/quicksearch');
+}
+
 //search by clicking
 $('#submitBtn').click(function () {
   const locationInputField = $('#cityInput').val().trim().toLowerCase();
@@ -154,7 +184,6 @@ jobList.addEventListener('click', function (e) {
   let element = e.target;
   let jobEl = $(element).val();
   console.log(jobEl);
-  response(jobEl);
 
   // const response = fetch(`/api/qs`, {
   //   method: 'POST',
@@ -166,3 +195,11 @@ jobList.addEventListener('click', function (e) {
   //   },
   // });
 });
+
+// async function jobFormHandler(e) {
+//   e.preventDefault();
+// }
+
+// document
+//   .querySelector('.forecastRow')
+//   .addEventListener('submit', favFormHandler);
