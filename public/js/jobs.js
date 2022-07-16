@@ -60,7 +60,7 @@ function searchJobs(position, location) {
           let jSite = `${response.data[i].job_publisher}`;
           let jLink = `${response.data[i].job_apply_link}`;
 
-          let jId = `j ${[i]}`;
+          let jId = `${[i]}`;
 
           let jobCard = $('<div class = "card col">');
           let jobTitle = $(`<p class = "job-title" value = "job_title">`);
@@ -97,7 +97,7 @@ function searchJobs(position, location) {
           // );
 
           jobCard.append(
-            `<button type="button" id="${jId} jobBtn" value = " Job Title: ${
+            `<button type="button" id="${jId}" value = " Job Title: ${
               jTitle +
               ' ' +
               'Link: ' +
@@ -207,44 +207,63 @@ function jobWait() {
   //console log save button for each appended job listing
   jobList.forEach((buttonEl) => console.log(buttonEl));
 
-  // jobList.forEach(addEventListener)
-
+  //add eventlistener to each button
   jobList.forEach((buttonEl) =>
     buttonEl.addEventListener('click', function (e) {
       e.preventDefault();
 
-      console.log(document.querySelectorAll('.card p[value= "employer_name"]'));
-      console.log(
-        document.querySelectorAll('.card p[value= "employer_name"]').length
-      );
-      let listingLength = document.querySelectorAll(
-        '.card p[value= "employer_name"]'
-      ).length;
-      // console.log(listingLength);
-      for (i = 0; i < listingLength; i++) {
-        console.log(
-          document.querySelectorAll('.card p[value="job_title"]')[i].innerText
-        );
+      // console.log(document.querySelectorAll('.card p[value= "employer_name"]'));
+      // console.log(
+      //   document.querySelectorAll('.card p[value= "employer_name"]').length
+      // );
+      // let listingLength = document.querySelectorAll(
+      //   '.card p[value= "employer_name"]'
+      // ).length;
+      console.log(e.target.id);
 
-        console.log(
-          document.querySelectorAll('.card p[value="employer_name"]')[i]
-            .innerText
-        );
-        console.log(
-          document.querySelectorAll('.card p[value="job_city"]')[i].innerText
-        );
-        console.log(
-          document.querySelectorAll('.card p[value="job_state"]')[i].innerText
-        );
-        console.log(
-          document.querySelectorAll('.card p[value="job_publisher"]')[i]
-            .innerText
-        );
-        console.log(
-          document.querySelectorAll('.card p[value="job_apply_link"]')[i]
-            .innerText
-        );
-      }
+      console.log(
+        document.querySelectorAll('.card p[value="job_title"]')[e.target.id]
+          .innerText
+      );
+      console.log(
+        document.querySelectorAll('.card p[value="employer_name"]')[e.target.id]
+          .innerText
+      );
+      console.log(
+        document.querySelectorAll('.card p[value="job_city"]')[e.target.id]
+          .innerText
+      );
+      console.log(
+        document.querySelectorAll('.card p[value="job_state"]')[e.target.id]
+          .innerText
+      );
+      console.log(
+        document.querySelectorAll('.card p[value="job_publisher"]')[e.target.id]
+          .innerText
+      );
+      console.log(
+        document.querySelectorAll('.card p[value="job_apply_link"]')[
+          e.target.id
+        ].innerText
+      );
+      console.log(jCity);
+      // const response = fetch(`/api/qs`, {
+      //   method: 'POST',
+      //   body: JSON.stringify({
+      //     title: jCity,
+      //     employer: jEmployer,
+      //     job_city: jCity,
+      //     job_state: jState,
+      //     publishing_site: jSite,
+      //     apply_link: jLink,
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // });
+      // if (response.ok) {
+      //   document.location.replace('/quicksearch');
+      // }
     })
   );
 }
