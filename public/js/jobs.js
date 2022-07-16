@@ -52,6 +52,16 @@ function searchJobs(position, location) {
         console.log(response.data.length);
 
         for (let i = 0; i < response.data.length; i++) {
+          let jTitle = `${response.data[i].job_title}`;
+          let jEmployer = `${response.data[i].employer_name}`;
+          let jCity = `${response.data[i].job_city}`;
+          let jState = `${response.data[i].job_state}`;
+          let jEmpType = `${response.data[i].job_employment_type}`;
+          let jSite = `${response.data[i].job_publisher}`;
+          let jLink = `${response.data[i].job_apply_link}`;
+
+          let jId = `j ${[i]}`;
+
           let jobCard = $('<div class = "card col">');
           let jobTitle = $('<p class = "job-title">');
           let jobEmployer = $('<p class = "job-employer">');
@@ -60,15 +70,15 @@ function searchJobs(position, location) {
           let jobEmpType = $('<p class = "job-emp-type">');
           let jobSite = $('<p class = "job-site">');
           let jobLink = $('<p class = "job-link">');
-          let jobBtn = $('<button type=button id=jobBtn>Favorite</button>');
+          // let jobBtn = $('<button type=button id=jobBtn>Favorite</button>');
 
-          jobTitle.text(`${response.data[i].job_title}`);
-          jobEmployer.text(`${response.data[i].employer_name}`);
-          jobCity.text(`${response.data[i].job_city}`);
-          jobState.text(`${response.data[i].job_state}`);
-          jobEmpType.text(`${response.data[i].job_employment_type}`);
-          jobSite.text(`${response.data[i].job_publisher}`);
-          jobLink.text(`${response.data[i].job_apply_link}`);
+          jobTitle.text(jTitle);
+          jobEmployer.text(jEmployer);
+          jobCity.text(jCity);
+          jobState.text(jState);
+          jobEmpType.text(jEmpType);
+          jobSite.text(jSite);
+          jobLink.text(jLink);
 
           $(`.forecastRow`).append(jobCard);
           jobCard.append(jobTitle);
@@ -78,35 +88,29 @@ function searchJobs(position, location) {
           jobCard.append(jobEmpType);
           jobCard.append(jobSite);
           jobCard.append(jobLink);
-          jobCard.append(jobBtn);
+          jobCard.append(
+            `<button type=button id=${jId}jobBtn value = ${jTitle}>Favorite</button>`
+          );
 
-          // if (dailyTitle != 'null') {
-          //   $('#dailyConditions').append($(`<li>Title: ${dailyTitle}</li>`));
+          //---------post db fetch------------
+          // const response = fetch(`/api/qs`, {
+          //   method: 'POST',
+          //   body: JSON.stringify({
+          //     title: jCity,
+          //     employer: jEmployer,
+          //     job_city: jCity,
+          //     job_state: jState,
+          //     publishing_site: jSite,
+          //     apply_link: jLink,
+          //   }),
+          //   headers: {
+          //     'Content-Type': 'application/json',
+          //   },
+          // });
+          // if (response.ok) {
+          //   document.location.replace('/quicksearch');
           // }
-          // if (dailyEmployer != 'null') {
-          //   $('#dailyConditions').append(
-          //     $(`<li>Employer: ${dailyEmployer}</li>`)
-          //   );
-          // }
-          // if (dailyCity != 'null') {
-          //   $('#dailyConditions').append($(`<li>City: ${dailyCity}</li>`));
-          // }
-          // if (dailyState != 'null') {
-          //   $('#dailyConditions').append($(`<li>State: ${dailyState}</li>`));
-          // }
-          // if (dailyEmpType != 'null') {
-          //   $('#dailyConditions').append(
-          //     $(`<li>Employment Type: ${dailyEmpType}</li>`)
-          //   );
-          // }
-          // if (dailySite != 'null') {
-          //   $('#dailyConditions').append($(`<li>Site: ${dailySite}</li>`));
-          // }
-          // if (dailyLink != 'null') {
-          //   $('#dailyConditions').append(
-          //     $(`<li><a href="${dailyLink}">Link to Apply</a></li>`)
-          //   );
-          // }
+          //---------post db fetch------------
         }
       });
     }
@@ -138,4 +142,27 @@ $('#cityInput').keypress(function (e) {
     const positionInputEnter = $('#positionInput').val().trim().toLowerCase();
     searchJobs(locationInputEnter, positionInputEnter);
   }
+});
+
+//-------------------------------------------
+
+let jobList = document.getElementById('job-list');
+
+jobList.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  let element = e.target;
+  let jobEl = $(element).val();
+  console.log(jobEl);
+  response(jobEl);
+
+  // const response = fetch(`/api/qs`, {
+  //   method: 'POST',
+  //   body: JSON.stringify({
+  //     title: jobEl,
+  //   }),
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  // });
 });
