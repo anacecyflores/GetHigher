@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Career, User } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 //main page route
 
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
     const jobs = jobsData.map((job) => job.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('dashboard', {
+    res.render('about', {
       jobs,
       logged_in: req.session.logged_in,
     });
@@ -42,7 +42,7 @@ router.get('/jobs/:id', async (req, res) => {
     });
 
     //plain true is supposed to return only the first record of result set
-    const job = jobsData.get({ plain: false });
+    const job = jobsData.get({ plain: true });
 
     res.render('jobs', {
       ...job,
@@ -53,69 +53,59 @@ router.get('/jobs/:id', async (req, res) => {
   }
 });
 
-//----------------------------
 //--------jobs ROUTE----------
-//----------------------------
 
 //get job list
-router.get('/jobs', (req, res) =>
-  Career.findAll({ raw: true })
-    .then((jobs) => {
-      res.render('jobs', {
-        jobs: jobs,
-      });
-    })
-    .catch((err) => console.log(err))
-);
+// router.get('/jobs', (req, res) =>
+//   Career.findAll({ raw: true })
+//     .then((jobs) => {
+//       res.render('jobs', {
+//         jobs: jobs,
+//       });
+//     })
+//     .catch((err) => console.log(err))
+// );
 
-//Add jobs
-router.get('/add', (req, res) => {
-  const data = {
-    title: 'Network Admin',
-    employer: 'Dell',
-    location_city: 'Los Angeles',
-    location_state: 'CA',
-    publishing_site: 'Indeed',
-  };
-
-  let { title, employer, location_city, location_state, publishing_site } =
-    data;
-
-  //insert into table
-  Career.create({
-    title: title,
-    employer: employer,
-    location_city: location_city,
-    location_state: location_state,
-    publishing_site,
-  })
-    .then((jobs) => res.redirect('/jobs'))
-    .catch((err) => console.log(err));
-});
-
-//----------------------------
 //--------jobs ROUTE end------
-//----------------------------
 
 // Use withAuth middleware to prevent access to route
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Career }],
-//     });
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Career }],
+    });
 
-//     const user = userData.get({ plain: true });
+    const user = userData.get({ plain: true });
 
-//     res.render('profile', {
-//       ...user,
-//       logged_in: true,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render('profile', {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/quicksearch', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Career }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('quicksearch', {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -123,8 +113,83 @@ router.get('/login', (req, res) => {
     res.redirect('/profile');
     return;
   }
-
   res.render('login');
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Career }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('dashboard', {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/jobs', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Career }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('jobs', {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/calendar', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Career }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('calendar', {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/quiz', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Career }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('quiz', {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 //dashboard page
@@ -145,7 +210,7 @@ router.get('/about', (req, res) => res.render('about'));
 //quick search page
 router.get('/quicksearch', (req, res) => res.render('quicksearch'));
 
-//quick search page
-router.get('/weather', (req, res) => res.render('weather'));
+//jobs
+router.get('/jobs', (req, res) => res.render('jobs'));
 
 module.exports = router;

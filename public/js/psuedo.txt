@@ -1,8 +1,0 @@
-use querylectorall to grab each card's button
-use for or for each to add an eventlistener to each card's button
-make sure button is anchored to proper element(card that it belongs to)
-create an object for POST(save favorites)
-add attributes for each column in db-results using are based on results from innerText
-access the attributes(isolate with queryselector using value)
-store innerText in attributes
-POST object(test w/ insomnia) to favorites DB

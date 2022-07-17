@@ -74,7 +74,6 @@ function searchJobs(position, location) {
           );
           let jobSite = $(`<p class = "job-site" value = "job_publisher">`);
           let jobLink = $(`<p class = "job-link" value = "job_apply_link">`);
-          // let jobBtn = $('<button type=button id=jobBtn>Favorite</button>');
 
           jobTitle.text(jTitle);
           jobEmployer.text(jEmployer);
@@ -92,9 +91,6 @@ function searchJobs(position, location) {
           jobCard.append(jobEmpType);
           jobCard.append(jobSite);
           jobCard.append(jobLink);
-          // jobCard.append(
-          //   `<button type="button" id="${jId} jobBtn" value = "${jTitle}">Favorite</button><button type="button" id="${jId} jobBtn" value = "${jLink}">favorite</button>`
-          // );
 
           jobCard.append(
             `<button type="button" id="${jId}" value = " Job Title: ${
@@ -110,10 +106,6 @@ function searchJobs(position, location) {
               jState
             }">FAVORITE</button>`
           );
-
-          // jobCard.append(
-          //   `<button type="button" id="${jId} jobBtn" value = "title: ${jTitle}, employer: ${jEmployer}, location_city: ${jCity}, location_state: ${jState} ">Favorite</button>`
-          // );
         }
         jobWait();
       });
@@ -147,8 +139,6 @@ function listJobs(jobTitle, jobEmployer, jobCity, jobState, jobSite, jobLink) {
     },
   });
   return response;
-  // if (response.ok) {
-  //   document.location.replace('/quicksearch');
 }
 
 //-------------------------------------------
@@ -164,13 +154,6 @@ function jobWait() {
   jobList.forEach((buttonEl) =>
     buttonEl.addEventListener('click', function (e) {
       e.preventDefault();
-      // console.log(document.querySelectorAll('.card p[value= "employer_name"]'));
-      // console.log(
-      //   document.querySelectorAll('.card p[value= "employer_name"]').length
-      // );
-      // let listingLength = document.querySelectorAll(
-      //   '.card p[value= "employer_name"]'
-      // ).length;
       console.log(e.target.id);
 
       let jTitle = document.querySelectorAll('.card p[value="job_title"]')[
@@ -208,9 +191,6 @@ function jobWait() {
         },
       });
       return response, console.log(response);
-      // if (response.ok) {
-      //   document.location.replace('/quicksearch');
-      // }
       //------------------post to db end------------------------
     })
   );
@@ -222,7 +202,6 @@ $('#submitBtn').click(function () {
 
   searchJobs(locationInputField, positionInputField);
 });
-
 //search with enter key
 $('#cityInput').keypress(function (e) {
   if (e.which === 13) {
