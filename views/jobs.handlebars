@@ -57,7 +57,8 @@
       <ul>
         <li>City: {{location_city}}</li>
         <li>State: {{location_state}}</li>
-        <li><a href="#" class="btn btn-reverse">Apply Now</a></li>
+        <li><a href="{{apply_link}}" class="btn btn-reverse">Apply Now</a></li>
+        <li><a href="#" class="btn btn-reverse">Remove Job</a></li>
       </ul>
       <div class="tech">
         <small>Listed by: <span>{{publishing_site}}</span></small>
@@ -65,7 +66,7 @@
     </div>
 
   {{else}}
-  <p>no jobs available</p>
+  <p>No jobs currently saved</p>
   {{/each}}
 
 
