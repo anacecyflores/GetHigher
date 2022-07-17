@@ -53,21 +53,6 @@ router.get('/jobs/:id', async (req, res) => {
   }
 });
 
-//--------jobs ROUTE----------
-
-//get job list
-// router.get('/jobs', (req, res) =>
-//   Career.findAll({ raw: true })
-//     .then((jobs) => {
-//       res.render('jobs', {
-//         jobs: jobs,
-//       });
-//     })
-//     .catch((err) => console.log(err))
-// );
-
-//--------jobs ROUTE end------
-
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -136,6 +121,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 router.get('/jobs', withAuth, async (req, res) => {
+  console.log(req.session.user_id);
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -144,11 +130,22 @@ router.get('/jobs', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+    console.log(user);
 
-    res.render('jobs', {
-      ...user,
-      logged_in: true,
-    });
+    Career.findAll({
+      raw: true,
+      where: {
+        user_id: req.session.user_id,
+      },
+    })
+      .then((jobs) => {
+        res.render('jobs', {
+          jobs: jobs,
+          ...user,
+          logged_in: true,
+        });
+      })
+      .catch((err) => console.log(err));
   } catch (err) {
     res.status(500).json(err);
   }

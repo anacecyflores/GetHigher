@@ -11,6 +11,7 @@ router.post('/quicksearch', (req, res) => {
     location_state: req.body.location_state,
     publishing_site: req.body.publishing_site,
     apply_link: req.body.apply_link,
+    user_id: req.session.user_id,
   })
     .then((qsDB) => res.json(qsDB))
     .catch((err) => {
