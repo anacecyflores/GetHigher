@@ -76,7 +76,7 @@ function searchJobs(position, location) {
           );
           let jobSite = $(`<p class = "job-site" value = "job_publisher">`);
           let jobLink = $(
-            `<p class = "job-link" id = "${jLink}" value = "job_apply_link"><a href="${jLink}">Apply Now</a></p>`
+            `<p class = "job-link" id = "${jLink}" value = "job_apply_link"><a class="inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" href="${jLink}">Apply Now</a></p>`
           );
           let jobLat = $(
             `<p class = "job-link" style = "display: none" value = "job_latitude">`
