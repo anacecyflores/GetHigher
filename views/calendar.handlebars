@@ -152,7 +152,7 @@
 	<script>
 		const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-		let events = localStorage.getItem('events');
+		//let events = localStorage.getItem('events');
 
 
 		function app() {
@@ -163,9 +163,7 @@
 				blankdays: [],
 				days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 
-				events: [
-					
-				],
+				events: JSON.parse(localStorage.getItem('events')) || [],
 				event_title: '',
 				event_date: '',
 				event_theme: 'blue',
@@ -216,6 +214,7 @@
 				},
 
 				addEvent() {
+					events = [];
 
 					if (this.event_title == '') {
 						return;
