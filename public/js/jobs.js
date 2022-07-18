@@ -75,7 +75,9 @@ function searchJobs(position, location) {
             `<p class = "job-emp-type" value = "job_employment_type">`
           );
           let jobSite = $(`<p class = "job-site" value = "job_publisher">`);
-          let jobLink = $(`<p class = "job-link" value = "job_apply_link">`);
+          let jobLink = $(
+            `<p class = "job-link" id = "${jLink}" value = "job_apply_link"><a href="${jLink}">Apply Now</a></p>`
+          );
           let jobLat = $(
             `<p class = "job-link" style = "display: none" value = "job_latitude">`
           );
@@ -89,7 +91,7 @@ function searchJobs(position, location) {
           jobState.text(jState);
           jobEmpType.text(jEmpType);
           jobSite.text(jSite);
-          jobLink.text(jLink);
+          // jobLink.text(jLink);
           jobLat.text(jLat);
           jobLng.text(jLng);
 
@@ -135,32 +137,9 @@ function searchJobs(position, location) {
   }
 }
 
-function listJobs(jobTitle, jobEmployer, jobCity, jobState, jobSite, jobLink) {
-  const response = fetch(`/api/qs/quicksearch`, {
-    method: 'POST',
-    body: JSON.stringify({
-      title: jobTitle,
-      employer: jobEmployer,
-      location_city: jobCity,
-      location_state: jobState,
-      publishing_site: jobSite,
-      apply_link: jobLink,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  return response;
-}
-
-//-------------------------------------------
-
 function jobWait() {
   let jobList = document.querySelectorAll('.card button');
   console.log(jobList);
-
-  //console log save button for each appended job listing
-  jobList.forEach((buttonEl) => console.log(buttonEl));
 
   //add eventlistener to each button
   jobList.forEach((buttonEl) =>
@@ -184,6 +163,12 @@ function jobWait() {
         e.target.id
       ].innerText;
       let jLink = document.querySelectorAll('.card p[value="job_apply_link"]')[
+        e.target.id
+      ].id;
+      let jLat = document.querySelectorAll('.card p[value="job_latitude"]')[
+        e.target.id
+      ].innerText;
+      let jLng = document.querySelectorAll('.card p[value="job_longitude"]')[
         e.target.id
       ].innerText;
 
