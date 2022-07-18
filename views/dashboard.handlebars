@@ -1,32 +1,30 @@
-    <!-- This example requires Tailwind CSS v2.0+ -->  
-  <header class="shadow">
-      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-      </div>
-  </header>
-
-  <main>
-    <div class=" max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-      <!-- Replace with your content -->
-      <div class="px-4 py-6 sm:px-0">
-        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-          <div class="mt-10 ml-10">
-            <h3 class="text-3xl tracking-tight font-mediumbold text-gray-900 sm:text-3xl md:text-3xl">Toggle Dark Mode</h3>
-            <button id="dark_mode" class="mt-5 inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Dark Mode/Light Mode</button>
-          </div>
-        </div>
-      </div>
-      <!-- /End replace -->
+<header class="shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
     </div>
-  </main>
+</header>
 
-  <script>
-    let darkbtn = document.getElementById('dark_mode');
-    darkbtn.addEventListener("click", function (){
-      let maincontent = document.getElementById('main');
-      let text = document.getElementsByTagName("p");
+<div class=" max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+ <!-- Replace with your content -->
+  <div class="px-4 py-6 sm:px-0">
+    <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
+      <div class="mt-10 ml-10">
+        <h3 class="text-3xl leading-8 tracking-tight text-gray-900 sm:text-3xl">Toggle Dark Mode</h3>
+        <button id="dark_mode" class="mt-5 inline-flex items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Dark Mode/Light Mode</button>
+      </div>
+    </div>
+  </div>
+ <!-- /End replace -->
+</div>
 
-      maincontent.classList.toggle("bg-gray-800")
+{{!-- JS test code to see if manual dark mode would work, only styles temporarily. --}}
+<script>
+  let darkbtn = document.getElementById('dark_mode');
+  darkbtn.addEventListener("click", function (){
+    let maincontent = document.getElementById('main');
+    let text = document.getElementsByTagName("p");
 
-    })
-  </script>
+    maincontent.classList.toggle("bg-gray-800")
+
+  })
+</script>

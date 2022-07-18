@@ -1,52 +1,3 @@
-{{!-- <div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
-
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Job Postings JUST for you:</h3>
-
-    <form class="form new-jobs-form">
-      <div class="form-group">
-        <label for="jobs-name">jobs name:</label>
-        <input class="form-input" type="text" id="jobs-name" name="jobs-name" />
-      </div>
-      <div class="form-group">
-        <label for="jobs-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="jobs-funding" name="jobs-funding" />
-      </div>
-      <div class="form-group">
-        <label for="jobs-desc">description:</label>
-        <textarea class="form-input" id="jobs-desc" name="jobs-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-
-  {{#if jobs.length}}
-  <div class="col-md-6 jobs-list">
-    <h3>Current Jobs:</h3>
-
-    {{#each jobs}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/jobs/"{{jobs.id}}>{{jobs.title}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{jobs.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
-
-<script src="./js/jobs.js"></script> --}}
-<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-indigo-600">
   <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between flex-wrap">
@@ -94,7 +45,7 @@
               </div>
             </div>
           {{else}}
-          <p>No jobs currently saved</p>
+          <p class="mt-2 ml-2 text-2xl leading-8 tracking-tight text-gray-900 sm:text-2xl">No jobs currently saved</p>
           {{/each}}
         </div>
       </div>
