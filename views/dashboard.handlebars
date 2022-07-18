@@ -1,5 +1,5 @@
     <!-- This example requires Tailwind CSS v2.0+ -->  
-  <header class="bg-white dark:bg-slate-800 shadow">
+  <header class="shadow">
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
       </div>
@@ -23,9 +23,11 @@
   <script>
     let darkbtn = document.getElementById('dark_mode');
     darkbtn.addEventListener("click", function (){
-      let body = document.getElementsByClassName('dark:')
+      let maincontent = document.getElementById('main');
+      let dashboard = document.getElementById('dashboard');
 
-      body.classList.toggle("bg-slate-800")
+      maincontent.classList.add("bg-gray-800")
+      dashboard.classList.add("bg-gray-300")
 
     })
   </script>

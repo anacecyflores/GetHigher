@@ -1,22 +1,32 @@
-  <div class='row'>
-        <header class='row text-center bg-dark text-white'>
-            <h1>Job Dashboard</h1>
-        </header>
-    </div>
+    <header class="shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-900">Quick Search</h1>
+        </div>
+    </header>
 
-    <main class='mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'>
-        <div class='column col-3 sm:text-center lg:text-left"'>
-            <p class='search-header fs-3 block text-indigo-600 xl:inline'>Enter a position:</p>
+    <main>
+        <div class="">
+        <!-- Replace with your content -->
+        <div class="">
+            
+        </div>
+        <!-- /End replace -->
+        </div>
+    </main>
 
-            <input id='positionInput' type='text' name='position' class='form-control' placeholder='Enter Position' />
+    <main class='mt-3 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-5 lg:mt-10 lg:px-4 xl:mt-14'>
+        <div class='column col-3 lg:text-left"'>
+            <p class='search-header fs-3 block text-indigo-600 xl:inline'>Enter a position</p>
+
+            <input id='positionInput' type='text' name='position' class='form-control focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md' placeholder='Enter Position' />
             <div id='display'></div>
             <span id='inputErrorPosition'></span>
         </div>
 
-        <div class='column col-3 sm:text-center lg:text-left"'>
-            <p class='search-header text-base text-indigo-600 tracking-wide'>Choose a location:</p>
+        <div class='mt-3 column col-3 lg:text-left"'>
+            <p class='search-header text-base text-indigo-600 tracking-wide'>Choose a location</p>
 
-            <input id='cityInput' type='text' name='city' class='form-control' placeholder='City Name' />
+            <input id='cityInput' type='text' name='city' class='form-control focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md' placeholder='City Name' />
             <div id='display'></div>
             <span id='inputError'></span>
             <div id='recentHistory' class='recentHistory'>
@@ -27,7 +37,8 @@
 
         <div id="job-results" class="container">
             <h2 id="five-title" class="mt-5 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Top Results</h2>
-            <div class="forecastRow row" id = "job-list"></div>
+            <div class="mt-3 forecastRow row border-4 border-dashed border-gray-200 rounded-lg w-full h-full" id = "job-list"></div>
         </div>
+    </main>
 
 <script src="./js/jobs.js"></script>
