@@ -24,10 +24,9 @@
     let darkbtn = document.getElementById('dark_mode');
     darkbtn.addEventListener("click", function (){
       let maincontent = document.getElementById('main');
-      let dashboard = document.getElementById('dashboard');
+      let text = document.getElementsByTagName("p");
 
-      maincontent.classList.add("bg-gray-800")
-      dashboard.classList.add("bg-gray-300")
+      maincontent.classList.toggle("bg-gray-800")
 
     })
   </script>
