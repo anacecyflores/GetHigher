@@ -59,6 +59,8 @@ function searchJobs(position, location) {
           let jEmpType = `${response.data[i].job_employment_type}`;
           let jSite = `${response.data[i].job_publisher}`;
           let jLink = `${response.data[i].job_apply_link}`;
+          let jLat = `${response.data[i].job_latitude}`;
+          let jLng = `${response.data[i].job_longitude}`;
 
           let jId = `${[i]}`;
 
@@ -74,6 +76,12 @@ function searchJobs(position, location) {
           );
           let jobSite = $(`<p class = "job-site" value = "job_publisher">`);
           let jobLink = $(`<p class = "job-link" value = "job_apply_link">`);
+          let jobLat = $(
+            `<p class = "job-link" style = "display: none" value = "job_latitude">`
+          );
+          let jobLng = $(
+            `<p class = "job-link" style = "display: none" value = "job_longitude">`
+          );
 
           jobTitle.text(jTitle);
           jobEmployer.text(jEmployer);
@@ -82,6 +90,8 @@ function searchJobs(position, location) {
           jobEmpType.text(jEmpType);
           jobSite.text(jSite);
           jobLink.text(jLink);
+          jobLat.text(jLat);
+          jobLng.text(jLng);
 
           $(`.forecastRow`).append(jobCard);
           jobCard.append(jobTitle);
@@ -91,6 +101,8 @@ function searchJobs(position, location) {
           jobCard.append(jobEmpType);
           jobCard.append(jobSite);
           jobCard.append(jobLink);
+          jobCard.append(jobLat);
+          jobCard.append(jobLng);
 
           jobCard.append(
             `<button type="button" id="${jId}" value = " Job Title: ${

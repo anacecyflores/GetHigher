@@ -21,4 +21,17 @@ router.post('/quicksearch', (req, res) => {
     });
 });
 
+router.delete('/:id', async (req, res) => {
+  console.log(req.params.id);
+  const savedJob = Career.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  if (!savedJob) {
+    res.status(404).json({ message: 'Job not found' });
+  }
+  res.status(200);
+});
+
 module.exports = router;
