@@ -1,14 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Career extends Model {}
 
-User.init(
+Career.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,98 +11,56 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
-    email: {
+    employer: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
+      // allowNull: false,
     },
-    password: {
+    location_city: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1],
-      },
+      // allowNull: false,
     },
-    quizTaken: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    quizResults: {
+    location_state: {
       type: DataTypes.STRING,
-      allowNull: true,
     },
-    website: {
+    publishing_site: {
       type: DataTypes.STRING,
-      allowNull: true,
     },
-    about: {
+    apply_link: {
+      type: DataTypes.STRING,
+    },
+    job_latitude: {
+      type: DataTypes.DECIMAL(10, 6),
+    },
+    job_longitude: {
+      type: DataTypes.DECIMAL(10, 6),
+    },
+    description: {
       type: DataTypes.TEXT,
-      allowNull: true,
     },
-    resume: {
-      type: DataTypes.STRING,
-      alowNull: true,
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    country: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    street: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    zipcode: {
+    user_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
   },
   {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-      beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
-        return updatedUserData;
-      },
-    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'Career',
   }
 );
 
-module.exports = User;
+module.exports = Career;
