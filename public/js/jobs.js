@@ -107,7 +107,7 @@ function searchJobs(position, location) {
           jobCard.append(jobLng);
 
           jobCard.append(
-            `<button class="ml-4 no-button inline items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50" type="button" id="${jId}" value = " Job Title: ${
+            `<button class="mt-2 ml-4 no-button inline items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50" type="button" id="${jId}" value = " Job Title: ${
               jTitle +
               ' ' +
               'Link: ' +
