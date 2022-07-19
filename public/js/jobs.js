@@ -49,8 +49,6 @@ function searchJobs(position, location) {
       };
 
       $.ajax(settings).done(function (response) {
-        console.log(response.data.length);
-
         for (let i = 0; i < response.data.length; i++) {
           let jTitle = `${response.data[i].job_title}`;
           let jEmployer = `${response.data[i].employer_name}`;
@@ -65,7 +63,9 @@ function searchJobs(position, location) {
           let jId = `${[i]}`;
 
           let jobCard = $('<div class = "card col">');
-          let jobTitle = $(`<p class = "ml-4 mt-4 ext-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3xl job-title" value = "job_title">`);
+          let jobTitle = $(
+            `<p class = "ml-4 mt-4 ext-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3xl job-title" value = "job_title">`
+          );
           let jobEmployer = $(
             `<p class = "ml-4 job-employer" value= "employer_name">`
           );
@@ -74,7 +74,9 @@ function searchJobs(position, location) {
           let jobEmpType = $(
             `<p class = "ml-4 job-emp-type" value = "job_employment_type">`
           );
-          let jobSite = $(`<p class = "ml-4 job-site" value = "job_publisher">`);
+          let jobSite = $(
+            `<p class = "ml-4 job-site" value = "job_publisher">`
+          );
           let jobLink = $(
             `<p class = "ml-4 job-link" id = "${jLink}" value = "job_apply_link"><a class="inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" href="${jLink}">Apply Now</a></p>`
           );
@@ -139,13 +141,12 @@ function searchJobs(position, location) {
 
 function jobWait() {
   let jobList = document.querySelectorAll('.card button');
-  console.log(jobList);
 
   //add eventlistener to each button
   jobList.forEach((buttonEl) =>
     buttonEl.addEventListener('click', function (e) {
       e.preventDefault();
-      console.log(e.target.id);
+      // console.log(e.target.id);
 
       let jTitle = document.querySelectorAll('.card p[value="job_title"]')[
         e.target.id
@@ -187,7 +188,7 @@ function jobWait() {
           'Content-Type': 'application/json',
         },
       });
-      return response, console.log(response);
+      return response;
       //------------------post to db end------------------------
     })
   );
