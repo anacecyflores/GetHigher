@@ -65,24 +65,24 @@ function searchJobs(position, location) {
           let jId = `${[i]}`;
 
           let jobCard = $('<div class = "card col">');
-          let jobTitle = $(`<p class = "job-title" value = "job_title">`);
+          let jobTitle = $(`<p class = "ml-4 mt-4 ext-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3xl job-title" value = "job_title">`);
           let jobEmployer = $(
-            `<p class = "job-employer" value= "employer_name">`
+            `<p class = "ml-4 job-employer" value= "employer_name">`
           );
-          let jobCity = $(`<p class = "job-city" value = "job_city">`);
-          let jobState = $(`<p class = "job-state" value = "job_state">`);
+          let jobCity = $(`<p class = "ml-4 job-city" value = "job_city">`);
+          let jobState = $(`<p class = "ml-4 job-state" value = "job_state">`);
           let jobEmpType = $(
-            `<p class = "job-emp-type" value = "job_employment_type">`
+            `<p class = "ml-4 job-emp-type" value = "job_employment_type">`
           );
-          let jobSite = $(`<p class = "job-site" value = "job_publisher">`);
+          let jobSite = $(`<p class = "ml-4 job-site" value = "job_publisher">`);
           let jobLink = $(
-            `<p class = "job-link" id = "${jLink}" value = "job_apply_link"><a class="inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" href="${jLink}">Apply Now</a></p>`
+            `<p class = "ml-4 job-link" id = "${jLink}" value = "job_apply_link"><a class="inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" href="${jLink}">Apply Now</a></p>`
           );
           let jobLat = $(
-            `<p class = "job-link" style = "display: none" value = "job_latitude">`
+            `<p class = "ml-4 job-link" style = "display: none" value = "job_latitude">`
           );
           let jobLng = $(
-            `<p class = "job-link" style = "display: none" value = "job_longitude">`
+            `<p class = "ml-4 job-link" style = "display: none" value = "job_longitude">`
           );
 
           jobTitle.text(jTitle);
@@ -107,7 +107,7 @@ function searchJobs(position, location) {
           jobCard.append(jobLng);
 
           jobCard.append(
-            `<button type="button" id="${jId}" value = " Job Title: ${
+            `<button class="ml-4 no-button inline items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50" type="button" id="${jId}" value = " Job Title: ${
               jTitle +
               ' ' +
               'Link: ' +
@@ -118,7 +118,7 @@ function searchJobs(position, location) {
               jCity +
               ',' +
               jState
-            }">FAVORITE</button>`
+            }">Favorite</button>`
           );
         }
         jobWait();
