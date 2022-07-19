@@ -9,7 +9,6 @@
   </head>
 
   <body class="h-full">
-    
     <header class="">
         <!-- This example requires Tailwind CSS v2.0+ -->
       <div class="bg-gray-50">
@@ -102,26 +101,16 @@
     </header>
 
     <main id="main" class="bg-gray-100">
-      <!-- Render the sub layout -->
-
-    {{!-- ---------------- test code-------------------------- --}}
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://code.jquery.com/jquery-3.6.0.js'></script>
-    {{!-- <script src='../../public/js/jobs.js'></script>   --}}
-    {{!-- ---------------------- test code end-------------------------- --}}
-
-    
+      <!-- Render the sub layout -->    
+      {{!-- --------- Scripts for Quick Search must stay in main above body---------------- --}}
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+      <script src='https://code.jquery.com/jquery-3.6.0.js'></script>
       {{{ body }}}    
-
     </main>
-    <footer class="bg-gray-50">
-        <!-- This example requires Tailwind CSS v2.0+ -->
-    </footer>
   
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
     <script src="../../js/logout.js"></script>
     {{/if}}
-
   </body>
 </html>
