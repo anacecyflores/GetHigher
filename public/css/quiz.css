@@ -67,14 +67,6 @@ html {
     transition: all 0.2s;
   }
 
-  button.previous {
-    background: #c84630;
-  }
-
-  button.next {
-    background: #3c91e6;
-  }
-
   button.restart {
     font-size: 2rem;
     margin-bottom: 1rem;
