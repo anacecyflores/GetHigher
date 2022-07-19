@@ -124,4 +124,88 @@
   </div>
 </div>
 
+{{!-- footer --}}
+<div class="border-4 border-gray-200">
+    <footer id="footer" class="relative z-50 dark:bg-gray-900">
+        <div tabindex="0" aria-label="footer" class="focus:outline-none border-t border-b border-gray-200 dark:border-gray-700 py-16">
+            <div class="mx-auto container px-4 xl:px-12 2xl:px-4">
+                <div class="lg:flex">
+                    <div class="w-full lg:w-1/2 mb-16 lg:mb-0 flex">
+                        <div class="w-full lg:w-1/2 px-6">
+                            <ul>
+                                <li class="mt-6"><p class="dark:text-white mt-2 ml-24 text-base text-indigo-600">Dark Mode</p></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="mt-6"><a class="dark:text-white mt-2 ml-50 text-base text-indigo-600" href="mailto:cristianvargas2022@u.northwestern.edu?cc=mbenson025@gmail.com,anacecyflores1@gmail.com&bcc=">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 flex">
+                        <div class="w-full lg:w-1/2 px-6 flex flex-col justify-between">
+                            <div class="mt-3 relative w-36">
+                                <img id="auto" class="dark:hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-device-laptop" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg3.svg" alt="auto">
+                                <img id="auto" class="dark:block hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-device-laptop" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg3dark.svg" alt="auto">
+                                <img  id="light" class="dark:hidden hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-brightness-up" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg4.svg" alt="light">
+                                <img  id="light" class="dark:block hidden hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-brightness-up" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg4dark.svg" alt="light">
+                                <img id="dark" class="dark:hidden hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-moon" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg5.svg" alt="dark">
+                                <img id="dark" class="dark:block hidden hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-moon" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg5dark.svg" alt="dark">
+                                
+
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg6.svg" class="pointer-events-none absolute inset-0 m-auto mr-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-chevron-down" alt="dropdown">
+                                <select aria-label="select box" onchange="switchMode(event)" class="w-full focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 focus:outline-none pl-10 py-2 appearance-none flex items-center h-12 border rounded border-gray-700 dark:border-gray-50 text-sm leading-5 dark:bg-gray-900 dark:text-gray-50">
+                                    <option selected="" value="auto">Auto</option>
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex items-center mb-6">
+                            <a  aria-label="Github" href="javascript:void(0)">
+                                <div class="text-gray-800 dark:text-gray-50 cursor-pointer hover:text-brand dark:hover:text-brand">
+                                    <a href="https://github.com/anacecyflores1/GetHigher"><img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg1.svg" alt="Github"></a>
+                                    <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg1dark.svg" alt="Github">
+                                </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-10 flex flex-col justify-center items-center">
+            <a class="focus:outline-none" tabindex="0" role="link" aria-label="home link" href="javascript:void(0)"
+                >
+            </a>
+            <p tabindex="0" class="dark:text-white mt-2 text-base text-indigo-600">Get Higher 2022 All Rights Reserved.</p>
+        </div>
+    </footer>
+</div>
+
+<script>
+  let auto = document.getElementById("auto");
+  let light = document.getElementById("light");
+  let dark = document.getElementById("dark");
+  const switchMode = (event) => {
+      switch (event.target.value) {
+          case "auto":
+              auto.classList.remove("hidden");
+              light.classList.add("hidden");
+              dark.classList.add("hidden");
+              break;
+          case "light":
+              auto.classList.add("hidden");
+              light.classList.remove("hidden");
+              dark.classList.add("hidden");
+              break;
+          case "dark":
+              auto.classList.add("hidden");
+              light.classList.add("hidden");
+              dark.classList.remove("hidden");
+              break;
+          default:
+              break;
+      }
+  };
+</script>
+
 <script src="./js/profile.js"></script>
