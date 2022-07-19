@@ -5,15 +5,15 @@
     "password": "password12345"
   },
   {
-    "name": "Lernantino",
-    "email": "lernantino@gmail.com",
-    "password": "password12345",
+    "name": "testUser",
+    "email": "u@test.com",
+    "password": "u",
     "website": "website.com",
-    "about": "about",
-    "firstName": "exfirstname",
-    "lastName": "exlastname",
+    "about": "userabout",
+    "firstName": "userfirstname",
+    "lastName": "userlastname",
     "country": "United States",
-    "street": "ex street",
+    "street": "user street",
     "city": "chicago",
     "state": "IL",
     "zipcode": "60007"
