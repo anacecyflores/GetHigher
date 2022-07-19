@@ -63,8 +63,6 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(user);
-    console.log(user.id);
 
     const profInfo = await User.findAll({
       attributes: { exclude: ['password'] },
