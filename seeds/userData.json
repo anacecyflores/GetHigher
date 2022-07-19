@@ -7,7 +7,17 @@
   {
     "name": "Lernantino",
     "email": "lernantino@gmail.com",
-    "password": "password12345"
+    "password": "password12345",
+    "website": "website.com",
+    "about": "about",
+    "firstName": "exfirstname",
+    "lastName": "exlastname",
+    "country": "United States",
+    "street": "ex street",
+    "city": "chicago",
+    "state": "IL",
+    "zipcode": "60007"
+
   },
   {
     "name": "Amiko",
