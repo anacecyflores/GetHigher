@@ -11,7 +11,9 @@
     "employer": "Microsoft",
     "location_city": "San Diego",
     "location_state": "CA",
-    "publishing_site": "LinkedIn"
+    "publishing_site": "LinkedIn",
+    "job_latitude": 32.7157,
+    "job_longitude": -117.1611
   },
   {
     "title": "Programmer",

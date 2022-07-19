@@ -32,6 +32,12 @@ Career.init(
     apply_link: {
       type: DataTypes.STRING,
     },
+    job_latitude: {
+      type: DataTypes.DECIMAL(10, 6),
+    },
+    job_longitude: {
+      type: DataTypes.DECIMAL(10, 6),
+    },
     // description: {
     //   type: DataTypes.STRING,
     // },
