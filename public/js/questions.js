@@ -1,4 +1,31 @@
 // questions index
+
+// const alignments ={
+//   STRONGLY_DISAGREE: "stongly-disagree",
+//   DISAGREE: "disagree",
+//   NEUTRAL: "neutral",
+//   AGREE: "agree",
+//   STRONGLY_AGREE: "strongly-agree"
+// };
+
+// const jobs = {
+//   NURSE: "nurse",
+//   ENGINEER: "engineer"
+// };
+
+
+// const questions = [
+//   {
+//       text: "test 1",
+//       aptitudes: {
+//           [ALIGNMENTS.STRONGLY_AGREE]: {
+//               [JOBS.NURSE]: 1,
+//               [JOBS.ENGINEER]: 3
+//           }
+//       }
+//   },
+
+
 const questions = [
   {
     question: 'My work must make a positive/helpful impact for others.',
