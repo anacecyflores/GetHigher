@@ -183,6 +183,8 @@ function jobWait() {
           location_state: jState,
           publishing_site: jSite,
           apply_link: jLink,
+          job_latitude: jLat,
+          job_longitude: jLng,
         }),
         headers: {
           'Content-Type': 'application/json',

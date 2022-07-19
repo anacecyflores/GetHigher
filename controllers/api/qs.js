@@ -11,6 +11,8 @@ router.post('/quicksearch', (req, res) => {
     location_state: req.body.location_state,
     publishing_site: req.body.publishing_site,
     apply_link: req.body.apply_link,
+    job_latitude: req.body.job_latitude,
+    job_longitude: req.body.job_longitude,
     user_id: req.session.user_id,
   })
     .then((qsDB) => res.json(qsDB))
