@@ -42,25 +42,25 @@ Calendar Feature- Finding a malleable calendar that will suit our user's needs o
 
 # Screenshots:
 
-<img src="./public/assets/about.png" alt="about page" title="About Page">
+<img src="/public/Assets/about.png" alt="about page" title="About Page">
 <br>
 <br>
-<img src="./public/assets/calendar.png" alt="calendar page" title="Calendar">
+<img src="/public/Assets/calendar.png" alt="calendar page" title="Calendar">
 <br>
 <br>
-<img src="./public/assets/career_quiz.png" alt="career quiz page" title="Career Quiz">
+<img src="/public/Assets/career_quiz.png" alt="career quiz page" title="Career Quiz">
 <br>
 <br>
-<img src="./public/assets/dashboard.png" alt="dashboard page" title="Dashboard">
+<img src="/public/Assets/dashboard.png" alt="dashboard page" title="Dashboard">
 <br>
 <br>
-<img src="./public/assets/profile.png" alt="profile page" title="Profile">
+<img src="/public/Assets/profile.png" alt="profile page" title="Profile">
 <br>
 <br>
-<img src="./public/assets/quick_search.png" alt="quick search page" title="Quick Search">
+<img src="/public/Assets/quick_search.png" alt="quick search page" title="Quick Search">
 <br>
 <br>
-<img src="./public/assets/saved_jobs.png" alt="favorite jobs page" title="Favorites">
+<img src="/public/Assets/saved_jobs.png" alt="favorite jobs page" title="Favorites">
 
 
 
