@@ -37,6 +37,9 @@ function generateQuestions(index) {
   option4.innerHTML = `${question.answer4}`;
   option5.innerHTML = `${question.answer5}`;
   console.log(questions[index]);
+  console.log(Object.values(questions[index].aptitudes.agree));
+  console.log(Object.keys(questions[index].aptitudes.agree));
+  console.log(Object.keys(questions[index].aptitudes)[0]);
 }
 
 function loadNextQuestion() {
