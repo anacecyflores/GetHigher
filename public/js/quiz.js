@@ -17,6 +17,11 @@ const result = document.querySelector('.result');
 
 //function that generates questions
 function generateQuestions(index) {
+  let answer1Total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let answer2Total = [];
+  let answer3Total = [];
+  let answer4Total = [];
+  let answer5Total = [];
   //selects each question by passing it through question index
   const question = questions[index];
   const option1Total = questions[index].answer1Total;
@@ -31,15 +36,18 @@ function generateQuestions(index) {
   option3.setAttribute('data-total', `${option3Total}`);
   option4.setAttribute('data-total', `${option4Total}`);
   option5.setAttribute('data-total', `${option5Total}`);
-  option1.innerHTML = `${question.answer1}`;
-  option2.innerHTML = `${question.answer2}`;
-  option3.innerHTML = `${question.answer3}`;
-  option4.innerHTML = `${question.answer4}`;
-  option5.innerHTML = `${question.answer5}`;
+  option1.innerHTML = `${Object.keys(questions[index].aptitudes)[0]}`;
+  option2.innerHTML = `${Object.keys(questions[index].aptitudes)[1]}`;
+  option3.innerHTML = `${Object.keys(questions[index].aptitudes)[2]}`;
+  option4.innerHTML = `${Object.keys(questions[index].aptitudes)[3]}`;
+  option5.innerHTML = `${Object.keys(questions[index].aptitudes)[4]}`;
   console.log(questions[index]);
   console.log(Object.values(questions[index].aptitudes.agree));
+  console.log(Object.values(questions[index].aptitudes)[0]);
   console.log(Object.keys(questions[index].aptitudes.agree));
   console.log(Object.keys(questions[index].aptitudes)[0]);
+
+  // let aptKey =
 }
 
 function loadNextQuestion() {
