@@ -7,7 +7,7 @@
 *   ⚡  [Node.js](https://nodejs.org/en/), [MySQL](https://www.mysql.com/), [JawsDB](https://www.jawsdb.com/), [Google Maps Api](https://developers.google.com/maps), [Google Job Search Api](https://rapidapi.com/letscrape-6bRBa3QguO5/api/google-jobs-search/), [Tailwind](https://tailwindcss.com/)
 
 
-![GitHub](https://img.shields.io/github/license/mbenson025/take-a-hike)
+![GitHub](https://img.shields.io/github/license/anacecyflores1/GetHigher)
 ![GitHub language count](https://img.shields.io/github/languages/count/anacecyflores1/GetHigher)
 ![GitHub top language](https://img.shields.io/github/languages/top/anacecyflores1/GetHigher)
 

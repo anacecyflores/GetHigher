@@ -66,7 +66,6 @@ function loadNextQuestion() {
     return;
   }
   //Get value of selected radio
-  // console.log(selectedOption.nextElementSibling);
   const answerScore =
     selectedOption.nextElementSibling.getAttribute('data-total');
 
@@ -159,7 +158,7 @@ function loadNextQuestion() {
   if (currentQuestion == totalQuestions - 1) {
     nextButton.textContent = 'Finish';
   }
-  //If the quiz is finished then we hide the questions container and show the results
+  //hide the questions container and show the results
   if (currentQuestion == totalQuestions) {
     //--------------------------
     mode(splitScore);
@@ -180,17 +179,13 @@ function loadNextQuestion() {
       return maxEl, escapeFunction(maxEl);
     }
     function escapeFunction(maxEl) {
-      console.log(maxEl);
-      //-------------------------------
-
       container.style.display = 'none';
-      // qsBtn.style.display = 'block';
       result.innerHTML = `<h1 class="final-score">Your Industry Result: ${maxEl}</h1>
          <div class="summary">
             <h1>Summary</h1>
             <p> Based on your answers, you would do well in the ${maxEl} Industry
         </div>
-        <button class="qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Jobs in this Industry</button>
+        <a href="/quicksearch" class="qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Search Jobs in this Industry</a>
         <button class="restart">Restart Quiz</button>
          `;
       return;
@@ -223,7 +218,6 @@ generateQuestions(currentQuestion);
 nextButton.addEventListener('click', loadNextQuestion);
 // previousButton.addEventListener('click', loadPreviousQuestion);
 result.addEventListener('click', restartQuiz);
-// qsBtn.addEventListener('click', quickSearch);
 
 //quiz results
 const init = () => {
@@ -234,6 +228,3 @@ const init = () => {
     .then(() => console.log('Successfully Displayed Quiz Results!'))
     .catch((err) => console.error(err));
 };
-
-//redirect to qs page
-// const quickSearch = () => {}
