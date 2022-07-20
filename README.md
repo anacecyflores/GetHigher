@@ -19,9 +19,12 @@ A key feature of our project is the login portion for the user to keep their pro
 <br>
 Mason: Worked with the Models to integrate mysql as our database. Incorporated Google Job Search Api, maintained tables on local and live deployments, data expert. 
 <br>
+<br>
 Ethan: Created quiz and quiz results to match user interest while sortung results into career choices. Built the alignment system.
 <br>
+<br>
 Cristian: Worked the Views component of the MVC: CSS and Tailwind expert. Incorporated calendar feature and local storage saving. Developed the UI to be responsive and easy to use. Maintained features to be scalable on any screen size.
+<br>
 <br>
 Ana: Worked on the Controllers aspect of the MVC: connected routes using RESTful api operations. 
 Designed page to page functionality. Used sessions/cookies to ensure login/log out capabilities.  
@@ -39,25 +42,25 @@ Calendar Feature- Finding a malleable calendar that will suit our user's needs o
 
 # Screenshots:
 
-<img src="public/assets/about.png" alt="about page" title="About Page">
+<img src="./public/assets/about.png" alt="about page" title="About Page">
 <br>
 <br>
-<img src="public/assets/calendar.png" alt="calendar page" title="Calendar">
+<img src="./public/assets/calendar.png" alt="calendar page" title="Calendar">
 <br>
 <br>
-<img src="public/assets/career_quiz.png" alt="career quiz page" title="Career Quiz">
+<img src="./public/assets/career_quiz.png" alt="career quiz page" title="Career Quiz">
 <br>
 <br>
-<img src="public/assets/dashboard.png" alt="dashboard page" title="Dashboard">
+<img src="./public/assets/dashboard.png" alt="dashboard page" title="Dashboard">
 <br>
 <br>
-<img src="public/assets/profile.png" alt="profile page" title="Profile">
+<img src="./public/assets/profile.png" alt="profile page" title="Profile">
 <br>
 <br>
-<img src="public/assets/quick_search.png" alt="quick search page" title="Quick Search">
+<img src="./public/assets/quick_search.png" alt="quick search page" title="Quick Search">
 <br>
 <br>
-<img src="public/assets/saved_jobs.png" alt="favorite jobs page" title="Favorites">
+<img src="./public/assets/saved_jobs.png" alt="favorite jobs page" title="Favorites">
 
 
 
