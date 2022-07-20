@@ -49,5 +49,3 @@ Calendar Feature- Finding a malleable calendar that will suit our user's needs o
 MIT License
 
 Copyright (c) 2022 
-
-Licensed under the [MIT](LICENSE) license.
