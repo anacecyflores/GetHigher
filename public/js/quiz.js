@@ -2,6 +2,7 @@ let currentQuestion = 0;
 let score = [];
 let selectedAnswersData = [];
 const totalQuestions = questions.length;
+console.log(questions.length);
 
 const container = document.querySelector('.question-container');
 const questionEl = document.querySelector('.question');
@@ -17,21 +18,48 @@ const result = document.querySelector('.result');
 
 //function that generates questions
 function generateQuestions(index) {
-  let answer1Total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  let answer2Total = [];
-  let answer3Total = [];
-  let answer4Total = [];
-  let answer5Total = [];
+  // let answer1Total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  // let answer2Total = [];
+  // let answer3Total = [];
+  // let answer4Total = [];
+  // let answer5Total = [];
   //selects each question by passing it through question index
+
   const question = questions[index];
-  const option1Total = questions[index].answer1Total;
-  const option2Total = questions[index].answer2Total;
-  const option3Total = questions[index].answer3Total;
-  const option4Total = questions[index].answer4Total;
-  const option5Total = questions[index].answer5Total;
+  let option1Total = [];
+  let option2Total = [];
+  let option3Total = [];
+  let option4Total = [];
+  let option5Total = [];
+
+  // let alignVals = Object.keys(Object.values(questions[index].aptitudes)[0]);
+  // console.log(alignVals);
+
+  option1Total.push(
+    ...Object.keys(Object.values(questions[index].aptitudes)[0])
+  );
+  console.log(option1Total.length);
+
+  option2Total.push(
+    ...Object.keys(Object.values(questions[index].aptitudes)[1])
+  );
+
+  option3Total.push(
+    ...Object.keys(Object.values(questions[index].aptitudes)[2])
+  );
+
+  option4Total.push(
+    ...Object.keys(Object.values(questions[index].aptitudes)[3])
+  );
+
+  option5Total.push(
+    ...Object.keys(Object.values(questions[index].aptitudes)[4])
+  );
   //populates the html elements for question
   questionEl.innerHTML = `${index + 1}. ${question.question}`;
   option1.setAttribute('data-total', `${option1Total}`);
+  // console.log(option1.dataset.total);
+  // console.log($(option1).data());
   option2.setAttribute('data-total', `${option2Total}`);
   option3.setAttribute('data-total', `${option3Total}`);
   option4.setAttribute('data-total', `${option4Total}`);
@@ -41,13 +69,96 @@ function generateQuestions(index) {
   option3.innerHTML = `${Object.keys(questions[index].aptitudes)[2]}`;
   option4.innerHTML = `${Object.keys(questions[index].aptitudes)[3]}`;
   option5.innerHTML = `${Object.keys(questions[index].aptitudes)[4]}`;
-  console.log(questions[index]);
-  console.log(Object.values(questions[index].aptitudes.agree));
-  console.log(Object.values(questions[index].aptitudes)[0]);
-  console.log(Object.keys(questions[index].aptitudes.agree));
-  console.log(Object.keys(questions[index].aptitudes)[0]);
-
+  // console.log(questions[index]);
+  // console.log(Object.values(questions[index].aptitudes));
+  // console.log(Object.values(questions[index].aptitudes)[0]);
+  // console.log(Object.keys(questions[index].aptitudes.agree));
+  // console.log(Object.keys(questions[index].aptitudes)[0]);
+  // let answerOne = Object.values(questions[index].aptitudes);
+  // answerOne.forEach((one) => {
+  //   console.log(Object.values(one)), console.log(Object.keys(one));
+  // });
+  // console.log(Object.values(jobs));
   // let aptKey =
+  // let choiceOne = Object.values(questions[index].aptitudes)[0];
+  // let choiceTwo = Object.values(questions[index].aptitudes)[1];
+  // answer1Total.push(choiceOne);
+  // answer1Total.push(choiceTwo);
+  // console.log(answer1Total);
+
+  // let jobArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  // let healthScore = 0;
+  // let businessScore = 0;
+  // let pharmScore = 0;
+  // let engineeringScore = 0;
+  // let computertechScore = 0;
+  // let aerospaceScore = 0;
+  // let legalScore = 0;
+  // let marketingScore = 0;
+  // let telecommScore = 0;
+  // let energyScore = 0;
+  // let manufacturingScore = 0;
+  // let educationScore = 0;
+
+  // console.log(Object.values(questions[index].aptitudes)[0]);
+  // let vals = Object.values(questions[index].aptitudes)[0];
+  // console.log(Object.keys(vals));
+  // let v = Object.keys(vals);
+  // console.log(v[0]);
+
+  // for (i = 0; i < v; i++) {
+  //   // console.log(v[i]);
+  //   if (v[i] == 'healthcare') {
+  //     healthScore++;
+  //   }
+  //   if (v[i] == 'businessfinance') {
+  //     businessScore++;
+  //   }
+  //   if (v[i] == 'pharmaceutical') {
+  //     pharmScore++;
+  //   }
+  //   if (v[i] == 'engineering') {
+  //     engineeringScore++;
+  //   }
+  //   if (v[i] == 'computertechfinance') {
+  //     computertechScore++;
+  //   }
+  //   if (v[i] == 'aerospace') {
+  //     aerospaceScore++;
+  //   }
+  //   if (v[i] == 'legal') {
+  //     legalScore++;
+  //   }
+  //   if (v[i] == 'marketing') {
+  //     marketingScore++;
+  //   }
+  //   if (v[i] == 'telecomm') {
+  //     telecommScore++;
+  //   }
+  //   if (v[i] == 'energy') {
+  //     energyScore++;
+  //   }
+  //   if (v[i] == 'manufacturing') {
+  //     manufacturingScore++;
+  //   }
+  //   if (v[i] == 'education') {
+  //     educationScore++;
+  //   }
+  // }
+  // console.log(
+  //   healthScore,
+  //   businessScore,
+  //   pharmScore,
+  //   engineeringScore,
+  //   computertechScore,
+  //   aerospaceScore,
+  //   legalScore,
+  //   marketingScore,
+  //   telecommScore,
+  //   energyScore,
+  //   manufacturingScore,
+  //   educationScore
+  // );
 }
 
 function loadNextQuestion() {
@@ -59,19 +170,129 @@ function loadNextQuestion() {
   }
   //Get value of selected radio
   console.log(selectedOption.nextElementSibling);
-  const answerScore = Number(
-    selectedOption.nextElementSibling.getAttribute('data-total')
-  );
-  console.log(answerScore);
+  // const answerScore = Number(
+  //   selectedOption.nextElementSibling.getAttribute('data-total')
+  // );
+  const answerScore =
+    selectedOption.nextElementSibling.getAttribute('data-total');
+
+  console.log(answerScore.length);
 
   ////Add the answer score to the score array
+  // score.concat(answerScore) ||
   score.push(answerScore);
   console.log(score);
 
+  //-------------
+  // $(function () {
+  //   var match = score.split(', ');
+  //   console.log(match);
+  //   for (var a in match) {
+  //     var variable = match[a];
+  //     console.log(variable);
+  //   }
+  // });
+  //-------------
+
   selectedAnswersData.push();
 
-  const totalScore = score.reduce((total, currentNum) => total + currentNum);
+  const totalScore = score.reduce(
+    (total, currentNum) => total + ',' + currentNum
+  );
   console.log(totalScore);
+  console.log(totalScore.length);
+  let splitScore = totalScore.split(',');
+  console.log(splitScore[0]);
+  console.log(splitScore.length);
+
+  // for (i = 0; i < splitScore.length; i++) {}
+
+  //-------------------------------
+
+  let healthScore = 0;
+  let businessScore = 0;
+  let pharmScore = 0;
+  let engineeringScore = 0;
+  let computertechScore = 0;
+  let aerospaceScore = 0;
+  let legalScore = 0;
+  let marketingScore = 0;
+  let telecommScore = 0;
+  let energyScore = 0;
+  let manufacturingScore = 0;
+  let educationScore = 0;
+
+  for (i = 0; i < splitScore.length; i++) {
+    // console.log(v[i]);
+    if (splitScore[i] == 'healthcare') {
+      healthScore++;
+    }
+    if (splitScore[i] == 'businessfinance') {
+      businessScore++;
+    }
+    if (splitScore[i] == 'pharmaceutical') {
+      pharmScore++;
+    }
+    if (splitScore[i] == 'engineering') {
+      engineeringScore++;
+    }
+    if (splitScore[i] == 'computertechfinance') {
+      computertechScore++;
+    }
+    if (splitScore[i] == 'aerospace') {
+      aerospaceScore++;
+    }
+    if (splitScore[i] == 'legal') {
+      legalScore++;
+    }
+    if (splitScore[i] == 'marketing') {
+      marketingScore++;
+    }
+    if (splitScore[i] == 'telecomm') {
+      telecommScore++;
+    }
+    if (splitScore[i] == 'energy') {
+      energyScore++;
+    }
+    if (splitScore[i] == 'manufacturing') {
+      manufacturingScore++;
+    }
+    if (splitScore[i] == 'education') {
+      educationScore++;
+    }
+  }
+  console.log(
+    healthScore,
+    businessScore,
+    pharmScore,
+    engineeringScore,
+    computertechScore,
+    aerospaceScore,
+    legalScore,
+    marketingScore,
+    telecommScore,
+    energyScore,
+    manufacturingScore,
+    educationScore
+  );
+  console.log(
+    Math.max(
+      healthScore,
+      businessScore,
+      pharmScore,
+      engineeringScore,
+      computertechScore,
+      aerospaceScore,
+      legalScore,
+      marketingScore,
+      telecommScore,
+      energyScore,
+      manufacturingScore,
+      educationScore
+    )
+  );
+
+  //-------------------------------
 
   //Finally we incement the current question number ( to be used as the index for each array)
   currentQuestion++;
@@ -84,8 +305,9 @@ function loadNextQuestion() {
   }
   //If the quiz is finished then we hide the questions container and show the results
   if (currentQuestion == totalQuestions) {
+    topIndustry = math.max;
     container.style.display = 'none';
-    result.innerHTML = `<h1 class="final-score">Your score: ${totalScore}</h1>
+    result.innerHTML = `<h1 class="final-score">Your Results: ${totalScore}</h1>
          <div class="summary">
             <h1>Summary</h1>
             <p>15 - 21</p>
@@ -100,15 +322,15 @@ function loadNextQuestion() {
   generateQuestions(currentQuestion);
 }
 
-//Function to load previous question
-function loadPreviousQuestion() {
-  //Decrement quentions index
-  currentQuestion--;
-  //remove last array value;
-  score.pop();
-  //Generate the question
-  generateQuestions(currentQuestion);
-}
+// //Function to load previous question
+// function loadPreviousQuestion() {
+//   //Decrement quentions index
+//   currentQuestion--;
+//   //remove last array value;
+//   score.pop();
+//   //Generate the question
+//   generateQuestions(currentQuestion);
+// }
 
 //Fuction to reset and restart the quiz;
 function restartQuiz(e) {
@@ -122,7 +344,7 @@ function restartQuiz(e) {
 }
 generateQuestions(currentQuestion);
 nextButton.addEventListener('click', loadNextQuestion);
-previousButton.addEventListener('click', loadPreviousQuestion);
+// previousButton.addEventListener('click', loadPreviousQuestion);
 result.addEventListener('click', restartQuiz);
 
 const init = () => {
