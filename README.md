@@ -1,7 +1,7 @@
 # GetHigher
  🖥️  Visit  [Get Higher Live Application](https://get-higher.herokuapp.com)
 *   🖥️  Checkout our [GitHub](https://github.com/anacecyflores1/GetHigher)
-*   🤝  Collaborators: Mason Benson, Ana C. Flores, Cristian Vargas, Ethan Torres
+*   🤝  Collaborator's Github: [Ana C. Flores](mailto:anacecyflores1@gmail.com), [Mason Benson](https://github.com/mbenson025), [Cristian Vargas ](https://github.com/vcristian1), [Ethan Torres](https://github.com/ethantor12)
 *   🧠  Northwestern Fullstack Bootcamp
 *   🌍 Chicago, IL
 *   ⚡  [Node.js](https://nodejs.org/en/), [MySQL](https://www.mysql.com/), [JawsDB](https://www.jawsdb.com/), [Google Maps Api](https://developers.google.com/maps), [Google Job Search Api](https://rapidapi.com/letscrape-6bRBa3QguO5/api/google-jobs-search/), [Tailwind](https://tailwindcss.com/)
