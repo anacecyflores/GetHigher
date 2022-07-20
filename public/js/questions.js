@@ -9,30 +9,19 @@ const alignments = {
 };
 
 const jobs = {
-  HEALTHCARE: 'healthcare',
-  BUSINESS_FINANCE: 'businessfinance',
-  PHARMACEUTICAL: 'pharmaceutical',
-  ENGINEERING: 'engineering',
-  COMPUTER_TECH: 'computertech',
-  AEROSPACE: 'aerospace',
-  LEGAL: 'legal',
-  MARKETING: 'marketing',
-  TELECOMM: 'telecomm',
-  ENERGY: 'energy',
-  MANUFACTURING: 'manufacturing',
-  EDUCATION: 'education',
+  HEALTHCARE: 'Healthcare',
+  BUSINESS_FINANCE: 'Businessfinance',
+  PHARMACEUTICAL: 'Pharmaceutical',
+  ENGINEERING: 'Engineering',
+  COMPUTER_TECH: 'Computertech',
+  AEROSPACE: 'Aerospace',
+  LEGAL: 'Legal',
+  MARKETING: 'Marketing',
+  TELECOMM: 'Telecomm',
+  ENERGY: 'Energy',
+  MANUFACTURING: 'Manufacturing',
+  EDUCATION: 'Education',
 };
-
-// const questions = [
-//   {
-//       text: "test 1",
-//       aptitudes: {
-//           [alignments.STRONGLY_AGREE]: {
-//               [jobs.NURSE]: 1,
-//               [jobs.ENGINEER]: 3
-//           }
-//       }
-//   },
 
 const questions = [
   {
@@ -168,32 +157,32 @@ const questions = [
       },
     },
   },
-  // {
-  //   question: 'I value work with clear indications of achievement and success',
-  //   aptitudes: {
-  //     [alignments.STRONGLY_AGREE]: {
-  //       [jobs.MANUFACTURING]: 1,
-  //       [jobs.HEALTHCARE]: 1,
-  //       [jobs.BUSINESS_FINANCE]: 1,
-  //     },
-  //     [alignments.AGREE]: {
-  //       [jobs.COMPUTER_TECH]: 1,
-  //       [jobs.PHARMACEUTICAL]: 1,
-  //       [jobs.MARKETING]: 1,
-  //       [jobs.ENGINEERING]: 1,
-  //       [jobs.AEROSPACE]: 1,
-  //     },
-  //     [alignments.NEUTRAL]: {},
-  //     [alignments.DISAGREE]: {
-  //       [jobs.LEGAL]: 1,
-  //       [jobs.TELECOMM]: 1,
-  //       [jobs.ENERGY]: 1,
-  //     },
-  //     [alignments.STRONGLY_DISAGREE]: {
-  //       [jobs.EDUCATION]: 1,
-  //     },
-  //   },
-  // },
+  {
+    question: 'I value work with clear indications of achievement and success',
+    aptitudes: {
+      [alignments.STRONGLY_AGREE]: {
+        [jobs.MANUFACTURING]: 1,
+        [jobs.HEALTHCARE]: 1,
+        [jobs.BUSINESS_FINANCE]: 1,
+      },
+      [alignments.AGREE]: {
+        [jobs.COMPUTER_TECH]: 1,
+        [jobs.PHARMACEUTICAL]: 1,
+        [jobs.MARKETING]: 1,
+        [jobs.ENGINEERING]: 1,
+        [jobs.AEROSPACE]: 1,
+      },
+      [alignments.NEUTRAL]: {},
+      [alignments.DISAGREE]: {
+        [jobs.LEGAL]: 1,
+        [jobs.TELECOMM]: 1,
+        [jobs.ENERGY]: 1,
+      },
+      [alignments.STRONGLY_DISAGREE]: {
+        [jobs.EDUCATION]: 1,
+      },
+    },
+  },
   // {
   //   question: 'My work must regularly introduce new problems for me to solve',
   //   aptitudes: {

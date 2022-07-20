@@ -14,6 +14,8 @@ const nextButton = document.querySelector('.next');
 const previousButton = document.querySelector('.previous');
 const restartButton = document.querySelector('.restart');
 const result = document.querySelector('.result');
+//button to redirect to qs page with results
+const qsBtn = document.querySelector('#qs-btn');
 
 function generateQuestions(index) {
   const question = questions[index];
@@ -45,8 +47,6 @@ function generateQuestions(index) {
   //populates the html elements for question
   questionEl.innerHTML = `${index + 1}. ${question.question}`;
   option1.setAttribute('data-total', `${option1Total}`);
-  // console.log(option1.dataset.total);
-  // console.log($(option1).data());
   option2.setAttribute('data-total', `${option2Total}`);
   option3.setAttribute('data-total', `${option3Total}`);
   option4.setAttribute('data-total', `${option4Total}`);
@@ -56,96 +56,6 @@ function generateQuestions(index) {
   option3.innerHTML = `${Object.keys(questions[index].aptitudes)[2]}`;
   option4.innerHTML = `${Object.keys(questions[index].aptitudes)[3]}`;
   option5.innerHTML = `${Object.keys(questions[index].aptitudes)[4]}`;
-  // console.log(questions[index]);
-  // console.log(Object.values(questions[index].aptitudes));
-  // console.log(Object.values(questions[index].aptitudes)[0]);
-  // console.log(Object.keys(questions[index].aptitudes.agree));
-  // console.log(Object.keys(questions[index].aptitudes)[0]);
-  // let answerOne = Object.values(questions[index].aptitudes);
-  // answerOne.forEach((one) => {
-  //   console.log(Object.values(one)), console.log(Object.keys(one));
-  // });
-  // console.log(Object.values(jobs));
-  // let aptKey =
-  // let choiceOne = Object.values(questions[index].aptitudes)[0];
-  // let choiceTwo = Object.values(questions[index].aptitudes)[1];
-  // answer1Total.push(choiceOne);
-  // answer1Total.push(choiceTwo);
-  // console.log(answer1Total);
-
-  // let jobArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  // let healthScore = 0;
-  // let businessScore = 0;
-  // let pharmScore = 0;
-  // let engineeringScore = 0;
-  // let computertechScore = 0;
-  // let aerospaceScore = 0;
-  // let legalScore = 0;
-  // let marketingScore = 0;
-  // let telecommScore = 0;
-  // let energyScore = 0;
-  // let manufacturingScore = 0;
-  // let educationScore = 0;
-
-  // console.log(Object.values(questions[index].aptitudes)[0]);
-  // let vals = Object.values(questions[index].aptitudes)[0];
-  // console.log(Object.keys(vals));
-  // let v = Object.keys(vals);
-  // console.log(v[0]);
-
-  // for (i = 0; i < v; i++) {
-  //   // console.log(v[i]);
-  //   if (v[i] == 'healthcare') {
-  //     healthScore++;
-  //   }
-  //   if (v[i] == 'businessfinance') {
-  //     businessScore++;
-  //   }
-  //   if (v[i] == 'pharmaceutical') {
-  //     pharmScore++;
-  //   }
-  //   if (v[i] == 'engineering') {
-  //     engineeringScore++;
-  //   }
-  //   if (v[i] == 'computertechfinance') {
-  //     computertechScore++;
-  //   }
-  //   if (v[i] == 'aerospace') {
-  //     aerospaceScore++;
-  //   }
-  //   if (v[i] == 'legal') {
-  //     legalScore++;
-  //   }
-  //   if (v[i] == 'marketing') {
-  //     marketingScore++;
-  //   }
-  //   if (v[i] == 'telecomm') {
-  //     telecommScore++;
-  //   }
-  //   if (v[i] == 'energy') {
-  //     energyScore++;
-  //   }
-  //   if (v[i] == 'manufacturing') {
-  //     manufacturingScore++;
-  //   }
-  //   if (v[i] == 'education') {
-  //     educationScore++;
-  //   }
-  // }
-  // console.log(
-  //   healthScore,
-  //   businessScore,
-  //   pharmScore,
-  //   engineeringScore,
-  //   computertechScore,
-  //   aerospaceScore,
-  //   legalScore,
-  //   marketingScore,
-  //   telecommScore,
-  //   energyScore,
-  //   manufacturingScore,
-  //   educationScore
-  // );
 }
 
 function loadNextQuestion() {
@@ -156,28 +66,13 @@ function loadNextQuestion() {
     return;
   }
   //Get value of selected radio
-  console.log(selectedOption.nextElementSibling);
-  // const answerScore = Number(
-  //   selectedOption.nextElementSibling.getAttribute('data-total')
-  // );
+  // console.log(selectedOption.nextElementSibling);
   const answerScore =
     selectedOption.nextElementSibling.getAttribute('data-total');
 
   ////Add the answer score to the score array
-  // score.concat(answerScore) ||
   score.push(answerScore);
-  console.log(score);
-
-  //-------------
-  // $(function () {
-  //   var match = score.split(', ');
-  //   console.log(match);
-  //   for (var a in match) {
-  //     var variable = match[a];
-  //     console.log(variable);
-  //   }
-  // });
-  //-------------
+  // console.log(score);
 
   selectedAnswersData.push();
 
@@ -189,10 +84,6 @@ function loadNextQuestion() {
   let splitScore = totalScore.split(',');
   // console.log(splitScore[0]);
   // console.log(splitScore.length);
-
-  // for (i = 0; i < splitScore.length; i++) {}
-
-  //-------------------------------
 
   let healthScore = 0;
   let businessScore = 0;
@@ -208,41 +99,40 @@ function loadNextQuestion() {
   let educationScore = 0;
 
   for (i = 0; i < splitScore.length; i++) {
-    // console.log(v[i]);
-    if (splitScore[i] == 'healthcare') {
+    if (splitScore[i] == 'Healthcare') {
       healthScore++;
     }
-    if (splitScore[i] == 'businessfinance') {
+    if (splitScore[i] == 'Businessfinance') {
       businessScore++;
     }
-    if (splitScore[i] == 'pharmaceutical') {
+    if (splitScore[i] == 'Pharmaceutical') {
       pharmScore++;
     }
-    if (splitScore[i] == 'engineering') {
+    if (splitScore[i] == 'Engineering') {
       engineeringScore++;
     }
-    if (splitScore[i] == 'computertechfinance') {
+    if (splitScore[i] == 'Computertechfinance') {
       computertechScore++;
     }
-    if (splitScore[i] == 'aerospace') {
+    if (splitScore[i] == 'Aerospace') {
       aerospaceScore++;
     }
-    if (splitScore[i] == 'legal') {
+    if (splitScore[i] == 'Legal') {
       legalScore++;
     }
-    if (splitScore[i] == 'marketing') {
+    if (splitScore[i] == 'Marketing') {
       marketingScore++;
     }
-    if (splitScore[i] == 'telecomm') {
+    if (splitScore[i] == 'Telecomm') {
       telecommScore++;
     }
-    if (splitScore[i] == 'energy') {
+    if (splitScore[i] == 'Energy') {
       energyScore++;
     }
-    if (splitScore[i] == 'manufacturing') {
+    if (splitScore[i] == 'Manufacturing') {
       manufacturingScore++;
     }
-    if (splitScore[i] == 'education') {
+    if (splitScore[i] == 'Education') {
       educationScore++;
     }
   }
@@ -260,46 +150,7 @@ function loadNextQuestion() {
     manufacturingScore,
     educationScore
   );
-  // let industryChoice = Math.max(
-  //   healthScore,
-  //   businessScore,
-  //   pharmScore,
-  //   engineeringScore,
-  //   computertechScore,
-  //   aerospaceScore,
-  //   legalScore,
-  //   marketingScore,
-  //   telecommScore,
-  //   energyScore,
-  //   manufacturingScore,
-  //   educationScore
-  // );
-  // console.log(industryChoice);
 
-  // //--------------------------
-  // mode(splitScore);
-  // function mode(splitScore) {
-  //   if (splitScore.length == 0) return null;
-  //   var modeMap = {};
-  //   var maxEl = splitScore[0],
-  //     maxCount = 1;
-  //   for (var i = 0; i < splitScore.length; i++) {
-  //     var el = splitScore[i];
-  //     if (modeMap[el] == null) modeMap[el] = 1;
-  //     else modeMap[el]++;
-  //     if (modeMap[el] > maxCount) {
-  //       maxEl = el;
-  //       maxCount = modeMap[el];
-  //     }
-  //   }
-  //   return maxEl, escapeFunction(maxEl);
-  // }
-  // function escapeFunction(maxEl) {
-  //   console.log(maxEl);
-  // }
-  // //-------------------------------
-
-  //Finally we incement the current question number ( to be used as the index for each array)
   currentQuestion++;
 
   //once finished clear checked
@@ -330,14 +181,16 @@ function loadNextQuestion() {
     }
     function escapeFunction(maxEl) {
       console.log(maxEl);
-      // }
       //-------------------------------
+
       container.style.display = 'none';
-      result.innerHTML = `<h1 class="final-score">Your Results: ${maxEl}</h1>
+      // qsBtn.style.display = 'block';
+      result.innerHTML = `<h1 class="final-score">Your Industry Result: ${maxEl}</h1>
          <div class="summary">
             <h1>Summary</h1>
             <p> Based on your answers, you would do well in the ${maxEl} Industry
         </div>
+        <button class="qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Jobs in this Industry</button>
         <button class="restart">Restart Quiz</button>
          `;
       return;
@@ -370,7 +223,9 @@ generateQuestions(currentQuestion);
 nextButton.addEventListener('click', loadNextQuestion);
 // previousButton.addEventListener('click', loadPreviousQuestion);
 result.addEventListener('click', restartQuiz);
+// qsBtn.addEventListener('click', quickSearch);
 
+//quiz results
 const init = () => {
   promptUser()
     .then((data) =>
@@ -379,3 +234,6 @@ const init = () => {
     .then(() => console.log('Successfully Displayed Quiz Results!'))
     .catch((err) => console.error(err));
 };
+
+//redirect to qs page
+// const quickSearch = () => {}
