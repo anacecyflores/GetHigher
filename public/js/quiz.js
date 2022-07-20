@@ -1,8 +1,7 @@
 let currentQuestion = 0;
 let score = [];
 let selectedAnswersData = [];
-const totalQuestions = questions.length;
-console.log(questions.length);
+const totalQuestions = questions.length - 1;
 
 const container = document.querySelector('.question-container');
 const questionEl = document.querySelector('.question');
@@ -16,15 +15,7 @@ const previousButton = document.querySelector('.previous');
 const restartButton = document.querySelector('.restart');
 const result = document.querySelector('.result');
 
-//function that generates questions
 function generateQuestions(index) {
-  // let answer1Total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  // let answer2Total = [];
-  // let answer3Total = [];
-  // let answer4Total = [];
-  // let answer5Total = [];
-  //selects each question by passing it through question index
-
   const question = questions[index];
   let option1Total = [];
   let option2Total = [];
@@ -32,13 +23,9 @@ function generateQuestions(index) {
   let option4Total = [];
   let option5Total = [];
 
-  // let alignVals = Object.keys(Object.values(questions[index].aptitudes)[0]);
-  // console.log(alignVals);
-
   option1Total.push(
     ...Object.keys(Object.values(questions[index].aptitudes)[0])
   );
-  console.log(option1Total.length);
 
   option2Total.push(
     ...Object.keys(Object.values(questions[index].aptitudes)[1])
@@ -176,8 +163,6 @@ function loadNextQuestion() {
   const answerScore =
     selectedOption.nextElementSibling.getAttribute('data-total');
 
-  console.log(answerScore.length);
-
   ////Add the answer score to the score array
   // score.concat(answerScore) ||
   score.push(answerScore);
@@ -199,11 +184,11 @@ function loadNextQuestion() {
   const totalScore = score.reduce(
     (total, currentNum) => total + ',' + currentNum
   );
-  console.log(totalScore);
-  console.log(totalScore.length);
+  // console.log(totalScore);
+  // console.log(totalScore.length);
   let splitScore = totalScore.split(',');
-  console.log(splitScore[0]);
-  console.log(splitScore.length);
+  // console.log(splitScore[0]);
+  // console.log(splitScore.length);
 
   // for (i = 0; i < splitScore.length; i++) {}
 
@@ -275,24 +260,44 @@ function loadNextQuestion() {
     manufacturingScore,
     educationScore
   );
-  console.log(
-    Math.max(
-      healthScore,
-      businessScore,
-      pharmScore,
-      engineeringScore,
-      computertechScore,
-      aerospaceScore,
-      legalScore,
-      marketingScore,
-      telecommScore,
-      energyScore,
-      manufacturingScore,
-      educationScore
-    )
-  );
+  // let industryChoice = Math.max(
+  //   healthScore,
+  //   businessScore,
+  //   pharmScore,
+  //   engineeringScore,
+  //   computertechScore,
+  //   aerospaceScore,
+  //   legalScore,
+  //   marketingScore,
+  //   telecommScore,
+  //   energyScore,
+  //   manufacturingScore,
+  //   educationScore
+  // );
+  // console.log(industryChoice);
 
-  //-------------------------------
+  // //--------------------------
+  // mode(splitScore);
+  // function mode(splitScore) {
+  //   if (splitScore.length == 0) return null;
+  //   var modeMap = {};
+  //   var maxEl = splitScore[0],
+  //     maxCount = 1;
+  //   for (var i = 0; i < splitScore.length; i++) {
+  //     var el = splitScore[i];
+  //     if (modeMap[el] == null) modeMap[el] = 1;
+  //     else modeMap[el]++;
+  //     if (modeMap[el] > maxCount) {
+  //       maxEl = el;
+  //       maxCount = modeMap[el];
+  //     }
+  //   }
+  //   return maxEl, escapeFunction(maxEl);
+  // }
+  // function escapeFunction(maxEl) {
+  //   console.log(maxEl);
+  // }
+  // //-------------------------------
 
   //Finally we incement the current question number ( to be used as the index for each array)
   currentQuestion++;
@@ -305,19 +310,38 @@ function loadNextQuestion() {
   }
   //If the quiz is finished then we hide the questions container and show the results
   if (currentQuestion == totalQuestions) {
-    topIndustry = math.max;
-    container.style.display = 'none';
-    result.innerHTML = `<h1 class="final-score">Your Results: ${totalScore}</h1>
+    //--------------------------
+    mode(splitScore);
+    function mode(splitScore) {
+      if (splitScore.length == 0) return null;
+      var modeMap = {};
+      var maxEl = splitScore[0],
+        maxCount = 1;
+      for (var i = 0; i < splitScore.length; i++) {
+        var el = splitScore[i];
+        if (modeMap[el] == null) modeMap[el] = 1;
+        else modeMap[el]++;
+        if (modeMap[el] > maxCount) {
+          maxEl = el;
+          maxCount = modeMap[el];
+        }
+      }
+      return maxEl, escapeFunction(maxEl);
+    }
+    function escapeFunction(maxEl) {
+      console.log(maxEl);
+      // }
+      //-------------------------------
+      container.style.display = 'none';
+      result.innerHTML = `<h1 class="final-score">Your Results: ${maxEl}</h1>
          <div class="summary">
             <h1>Summary</h1>
-            <p>15 - 21</p>
-            <p>10 - 15</p>
-            <p>5 - 10</p>
-            <p>5</p>
+            <p> Based on your answers, you would do well in the ${maxEl} Industry
         </div>
         <button class="restart">Restart Quiz</button>
          `;
-    return;
+      return;
+    }
   }
   generateQuestions(currentQuestion);
 }
