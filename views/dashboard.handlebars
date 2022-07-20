@@ -9,6 +9,81 @@
   <div class="px-4 py-6 sm:px-0">
     <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
     </div>
+
+ <div class="px-4 py-6 sm:px-0">
+    <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
+              {{#each jobs}}
+        <div class="job">
+          <h3 class = "ml-4 mt-4 ext-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3xl job-title" value = "job_title">{{title}}</h3>
+          <p class = "ml-4 job-employer" value= "employer_name">{{employer}}</p>
+          <ul>
+            <li class = "ml-4 job-city" value = "job_city">{{location_city}}</li>
+            <li class = "ml-4 job-state" value = "job_state">{{location_state}}</li>
+            <li><a class="ml-4 inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" href="{{apply_link}}" class="btn btn-reverse">Apply Now</a></li>
+            <li><button class="mt-2 ml-4 no-button inline items-center justify-center px-2.5 py-1.5 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50" data-id = "{{this.id}}" id ="delete-btn" class="delete-btn btn btn-reverse">Remove Job</button></li>
+          </ul>
+          <div class="ml-4 tech">
+            <small>Listed by: <span>{{publishing_site}}</span></small>
+          </div>
+        </div>
+      {{else}}
+      <p class="mt-2 ml-2 text-2xl leading-8 tracking-tight text-gray-900 sm:text-2xl">No jobs currently saved</p>
+      {{/each}}
+    </div>
+  </div>
+  <!-- /End replace -->
+</div>
+
+{{!-- footer --}}
+<div class="border-4 border-gray-200">
+    <footer id="footer" class="relative z-50 dark:bg-gray-900">
+        <div tabindex="0" aria-label="footer" class="focus:outline-none border-t border-b border-gray-200 dark:border-gray-700 py-16">
+            <div class="mx-auto container px-4 xl:px-12 2xl:px-4">
+                <div class="lg:flex">
+                    <div class="w-full lg:w-1/2 mb-16 lg:mb-0 flex">
+                        <div class="w-full lg:w-1/2 px-6">
+                            <ul>
+                                <li class="mt-6"><p class="dark:text-white mt-2 ml-24 text-base text-indigo-600">Dark Mode</p></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="mt-6"><a class="dark:text-white mt-2 ml-50 text-base text-indigo-600" href="mailto:cristianvargas2022@u.northwestern.edu?cc=mbenson025@gmail.com,anacecyflores1@gmail.com,ethantor12@gmail.com&bcc=">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 flex">
+                        <div class="w-full lg:w-1/2 px-6 flex flex-col justify-between">
+                            <div class="mt-3 relative w-36">
+                                <img id="auto" class="dark:hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-device-laptop" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg3.svg" alt="auto">
+                                <img id="auto" class="dark:block hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-device-laptop" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg3dark.svg" alt="auto">
+                                <img  id="light" class="dark:hidden hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-brightness-up" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg4.svg" alt="light">
+                                <img  id="light" class="dark:block hidden hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-brightness-up" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg4dark.svg" alt="light">
+                                <img id="dark" class="dark:hidden hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-moon" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg5.svg" alt="dark">
+                                <img id="dark" class="dark:block hidden hidden absolute inset-0 m-auto ml-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-moon" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg5dark.svg" alt="dark">
+                                
+
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg6.svg" class="pointer-events-none absolute inset-0 m-auto mr-3 text-gray-700 dark:text-gray-50 icon icon-tabler icon-tabler-chevron-down" alt="dropdown">
+                                <select aria-label="select box" onchange="switchMode(event)" class="w-full focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 focus:outline-none pl-10 py-2 appearance-none flex items-center h-12 border rounded border-gray-700 dark:border-gray-50 text-sm leading-5 dark:bg-gray-900 dark:text-gray-50">
+                                    <option selected="" value="auto">Auto</option>
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex items-center mb-6">
+                            <a  aria-label="Github" href="javascript:void(0)">
+                                <div class="text-gray-800 dark:text-gray-50 cursor-pointer hover:text-brand dark:hover:text-brand">
+                                    <a href="https://github.com/anacecyflores1/GetHigher"><img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg1.svg" alt="Github"></a>
+                                    <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg1dark.svg" alt="Github">
+                                </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
   </div>
  <!-- /End replace -->
 </div>
