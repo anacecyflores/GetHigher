@@ -119,9 +119,22 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('dashboard', {
-      ...user,
-      logged_in: true,
+    // res.render('dashboard', {
+    //   ...user,
+    //   logged_in: true,
+    // });
+
+    Career.findAll({
+      raw: true,
+      where: {
+        user_id: req.session.user_id,
+      },
+    }).then((jobs) => {
+      res.render('jobs', {
+        jobs: jobs,
+        ...user,
+        logged_in: true,
+      });
     });
   } catch (err) {
     res.status(500).json(err);
