@@ -101,7 +101,7 @@ function loadNextQuestion() {
     if (splitScore[i] == 'Healthcare') {
       healthScore++;
     }
-    if (splitScore[i] == 'Businessfinance') {
+    if (splitScore[i] == 'Business') {
       businessScore++;
     }
     if (splitScore[i] == 'Pharmaceutical') {
@@ -110,7 +110,7 @@ function loadNextQuestion() {
     if (splitScore[i] == 'Engineering') {
       engineeringScore++;
     }
-    if (splitScore[i] == 'Computertechfinance') {
+    if (splitScore[i] == 'Technology') {
       computertechScore++;
     }
     if (splitScore[i] == 'Aerospace') {
