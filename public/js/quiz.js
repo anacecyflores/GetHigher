@@ -14,7 +14,7 @@ const nextButton = document.querySelector('.next');
 const previousButton = document.querySelector('.previous');
 const restartButton = document.querySelector('.restart');
 const result = document.querySelector('.result');
-//button to redirect to qs page with results
+//buttonS to quicksearch page
 const qsBtn = document.querySelector('#qs-btn');
 
 function generateQuestions(index) {

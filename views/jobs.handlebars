@@ -44,8 +44,8 @@
           </ul>
           <div class="ml-4 tech">
             <small>Listed by: <span>{{publishing_site}}</span></small>
-            <small style="" class="lat">{{job_latitude}}</small>
-            <small style="" class="lng">{{job_longitude}}</small>
+            <small style="display:none" class="lat">{{job_latitude}}</small>
+            <small style="display:none" class="lng">{{job_longitude}}</small>
           </div>
         </div>
       {{else}}
@@ -143,6 +143,20 @@
 <script src="./js/destroy.js"></script>
 <script>
 function initMap() {
+
+  //amount of favorited jobs pulled
+  let coordLength = document.querySelectorAll('.lat').length
+
+  if (coordLength > 0) {
+  let exCoordLat = document.querySelectorAll('.lat')[0].innerText;
+  let exCoordLng = document.querySelectorAll('.lng')[0].innerText;
+  let options = {
+    zoom: 8,
+    mapId: '90a0e5faef41b176',
+    center: { lat: +exCoordLat, lng: +exCoordLng },
+  };
+  callMap(options)
+  } else {
   let exCoordLat = 41.8781;
   let exCoordLng = -87.6298;
   let options = {
@@ -150,11 +164,13 @@ function initMap() {
     mapId: '90a0e5faef41b176',
     center: { lat: exCoordLat, lng: exCoordLng },
   };
+  callMap(options)
+  }
+  function callMap(options) {
 
   let map = new google.maps.Map(document.getElementById('map'), options);
 
-  //amount of favorited jobs pulled
-  let coordLength = document.querySelectorAll('.lat').length
+
 
   //add markers is there is at least one saved job
   if (coordLength > 0) {
@@ -178,6 +194,7 @@ function initMap() {
       //marker.addListener('click', function () {
         //infoWindow.open(map, marker);
         //});
+      }
     }
   }
 }
