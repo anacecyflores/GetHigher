@@ -143,7 +143,7 @@
 <script src="./js/destroy.js"></script>
 <script>
 function initMap() {
-
+  
   //amount of favorited jobs pulled
   let coordLength = document.querySelectorAll('.lat').length
 
@@ -177,12 +177,16 @@ function initMap() {
   for (i=0; i<coordLength; i++) {
     let lat = document.querySelectorAll('.lat')[i].innerText;
     let lng = document.querySelectorAll('.lng')[i].innerText;
+    let jobTitle = document.querySelectorAll('.job-title')[i].innerText
+    let jobEmployer = document.querySelectorAll('.job-employer')[i].innerText
+
     let markers = 
       {
         coords: { lat: +lat, lng: +lng },
         iconImg:
           'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-        content: '<h3>Location ex</h3>',
+        content: `<h4><strong>${jobTitle}</strong></h4>
+                  <h5>${jobEmployer}</h5>`,
       }
 
       let marker = new google.maps.Marker({
@@ -190,10 +194,16 @@ function initMap() {
         map: map,
         icon: markers.iconImg,
       });
+      console.log(markers.content)
+      if(markers.content){
+      let infoWindow = new google.maps.InfoWindow({
+        content: markers.content
+      })
 
-      //marker.addListener('click', function () {
-        //infoWindow.open(map, marker);
-        //});
+      marker.addListener('click', function () {
+        infoWindow.open(map, marker);
+        });
+        }
       }
     }
   }
