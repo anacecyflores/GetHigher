@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="./css/map.css" />
 <div class="bg-indigo-600">
   <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between flex-wrap">
@@ -26,6 +27,8 @@
 </header>
 
 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+  <h2>Job Locations</h2>
+          <div id="map"></div>
   <!-- Replace with your content -->
   <div class="px-4 py-6 sm:px-0">
     <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
@@ -41,6 +44,8 @@
           </ul>
           <div class="ml-4 tech">
             <small>Listed by: <span>{{publishing_site}}</span></small>
+            <small style="" class="lat">{{job_latitude}}</small>
+            <small style="" class="lng">{{job_longitude}}</small>
           </div>
         </div>
       {{else}}
@@ -136,3 +141,44 @@
   };
 </script>      
 <script src="./js/destroy.js"></script>
+<script>
+function initMap() {
+let lat = 41.8781;
+let lng = -87.6298
+let coordLength = document.querySelectorAll('.lat').length
+//console.log(document.querySelectorAll('.lat')[0].innerText)
+//console.log(document.querySelectorAll('.lng')[0].innerText)
+
+
+
+  let options = {
+    zoom: 8,
+    mapId: '90a0e5faef41b176',
+    center: { lat: +lat, lng: +lng },
+  };
+
+  let map = new google.maps.Map(document.getElementById('map'), options);
+
+  addMarker(lat, lng);
+  function addMarker(lat, lng) {
+
+    //for (i=0; i<coordLength; i++) {
+    //console.log(document.querySelectorAll('.lat')[i].innerText)
+    //console.log(document.querySelectorAll('.lng')[i].innerText)
+    //let latArr = document.querySelectorAll('.lat')[i].innerText
+    //let lngArr = document.querySelectorAll('.lng')[i].innerText
+  
+
+    let marker = new google.maps.Marker({
+      position: { lat: +lat, lng: +lng },
+      map: map,
+      icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    });
+    //marker.addListener('click', function () {
+      //infoWindow.open(map, marker);
+      //});
+    }
+  }
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4OVkkkHA93ViisjQDq3Fx_oAtNuevgR0&callback=initMap"></script>

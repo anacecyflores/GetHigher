@@ -1,8 +1,6 @@
 const updatePersonal = (e) => {
   let btnId = e.target.id;
   let dbId = e.target.dataset.id;
-  console.log(btnId);
-  console.log(dbId);
   const firstName = document.querySelector('#first-name').value.trim();
   const lastName = document.querySelector('#last-name').value.trim();
   const email = document.querySelector('#email-address').value.trim();
