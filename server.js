@@ -4,6 +4,18 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const { checkFileUploadType } = require('./aws');
+const multer = require('multer');
+const upload = multer({
+  //5MB file upload limit
+  limits:{
+    fileSize: 5000000,
+  // checks the file type 
+  fileFilter: function (req,file,cb){
+      checkFileUploadType(file, cb)
+  }
+  }
+})
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
