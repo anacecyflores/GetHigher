@@ -130,7 +130,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     }).then((jobs) => {
-      res.render('jobs', {
+      res.render('dashboard', {
         jobs: jobs,
         ...user,
         logged_in: true,
