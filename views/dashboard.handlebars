@@ -1,31 +1,34 @@
 <header class="shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-      <dd class="text-3xl font-bold text-gray-900">Welcome {{firstName}} {{lastName}}!</dd>
-       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            
-            </div>
-                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{street}} {{city}} {{state}}, {{zipcode}}</dd>
-            </div>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{email}}</dd>
-            </div>
+        <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
     </div>
 </header>
-{{!-- Start Upcoming Events Calendar --}}
-        <a href="/calendar" class="qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Check out your upcoming events!</a>
-    <div class="px-4 py-6 sm:px-0">
-    <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
-{{!-- End Calendar --}}
 
 <div class=" max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
 <!-- Replace with your content -->
+    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+        <span class="block xl:inline">Welcome</span>
+        <span class="block text-indigo-600 xl:inline">{{firstName}} {{lastName}}!</span>
+      </h1>
+    {{!-- Start Upcoming Events Calendar --}}
+    
+    <h1 class="text-3xl font-bold text-gray-900">Events</h1>
+    <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
+        <a href="/calendar" class="qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Check out your upcoming events!</a>
+    </div>
+
+    {{!-- End Calendar --}}
+    <h1 class="text-3xl font-bold text-gray-900">Quiz Results</h1>
+    <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
+         <div class="summary">
+            <p> Based on your answers, you would do well in the {{maxEl}} Industry!
+            <p>Based on your answers, you would do well in the {{quiz_results}} Industry</p>
         </div>
         <a href="/quicksearch" class="qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Search Jobs in this Industry</a>
     </div>
 
     <div class="px-4 py-6 sm:px-0">
+    <h1 class="text-3xl font-bold text-gray-900">Saved Jobs</h1>
     <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
               {{#each jobs}}
         <div class="job">
