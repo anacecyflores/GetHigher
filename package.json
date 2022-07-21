@@ -15,6 +15,7 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.5.2",
     "autoprefixer": "^10.4.7",
+    "aws-sdk": "^2.1179.0",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
@@ -22,11 +23,14 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^3.0.1",
     "mysql2": "^2.2.5",
     "postcss": "^8.4.14",
     "postcss-cli": "^10.0.0",
     "sequelize": "^6.3.5",
-    "tailwindcss": "^3.1.6"
+    "tailwindcss": "^3.1.6",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "eslint": "^7.12.1",

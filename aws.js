@@ -29,8 +29,6 @@ const checkFileUploadType = (file, cb) => {
     }
 };
 
-
-
 function uploadFile(file) {
         //threw an error onsplit 
     // const myfile = file.split(".");
@@ -44,6 +42,5 @@ function uploadFile(file) {
     }
     return S3.upload(params).promise()
 }
-
 
 module.exports = { uploadFile, checkFileUploadType }
