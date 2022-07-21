@@ -5,13 +5,13 @@
       <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="mt-2 bg-gray-100">
           <h3 class="text-lg font-medium leading-6 text-gray-900">Profile Information</h3>
-          <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details and application.</p>
+          <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details.</p>
         </div>
         <div class="border-t border-gray-300">
           <dl>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Full Name</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{name}} {{firstName}} {{lastName}}</dd>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{firstName}} {{lastName}}</dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Full Address</dt>
@@ -21,6 +21,10 @@
               <dt class="text-sm font-medium text-gray-500">Email address</dt>
               <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{email}}</dd>
             </div>
+              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500">Country</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{country}}</dd>
+            </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Website</dt>
               <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{website}}</dd>
@@ -28,10 +32,6 @@
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">About</dt>
               <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{about}}</dd>
-            </div>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Country</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{country}}</dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Attachments</dt>
@@ -55,7 +55,7 @@
 
       <div class="mt-6 px-4 sm:px-0">
         <h3 class="text-lg font-medium leading-6 text-gray-900">Update Profile</h3>
-        <p class="mt-1 text-sm text-gray-600">This information is only seen by you.</p>
+        <p class="mt-1 text-sm text-gray-600">Update personal details below.</p>
       </div>
 
     </div>
