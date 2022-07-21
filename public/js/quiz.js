@@ -97,58 +97,58 @@ function loadNextQuestion() {
   let manufacturingScore = 0;
   let educationScore = 0;
 
-  for (i = 0; i < splitScore.length; i++) {
-    if (splitScore[i] == 'Healthcare') {
-      healthScore++;
-    }
-    if (splitScore[i] == 'Business') {
-      businessScore++;
-    }
-    if (splitScore[i] == 'Pharmaceutical') {
-      pharmScore++;
-    }
-    if (splitScore[i] == 'Engineering') {
-      engineeringScore++;
-    }
-    if (splitScore[i] == 'Technology') {
-      computertechScore++;
-    }
-    if (splitScore[i] == 'Aerospace') {
-      aerospaceScore++;
-    }
-    if (splitScore[i] == 'Legal') {
-      legalScore++;
-    }
-    if (splitScore[i] == 'Marketing') {
-      marketingScore++;
-    }
-    if (splitScore[i] == 'Telecomm') {
-      telecommScore++;
-    }
-    if (splitScore[i] == 'Energy') {
-      energyScore++;
-    }
-    if (splitScore[i] == 'Manufacturing') {
-      manufacturingScore++;
-    }
-    if (splitScore[i] == 'Education') {
-      educationScore++;
-    }
-  }
-  console.log(
-    healthScore,
-    businessScore,
-    pharmScore,
-    engineeringScore,
-    computertechScore,
-    aerospaceScore,
-    legalScore,
-    marketingScore,
-    telecommScore,
-    energyScore,
-    manufacturingScore,
-    educationScore
-  );
+  // for (i = 0; i < splitScore.length; i++) {
+  //   if (splitScore[i] == 'Healthcare') {
+  //     healthScore++;
+  //   }
+  //   if (splitScore[i] == 'Business') {
+  //     businessScore++;
+  //   }
+  //   if (splitScore[i] == 'Pharmaceutical') {
+  //     pharmScore++;
+  //   }
+  //   if (splitScore[i] == 'Engineering') {
+  //     engineeringScore++;
+  //   }
+  //   if (splitScore[i] == 'Technology') {
+  //     computertechScore++;
+  //   }
+  //   if (splitScore[i] == 'Aerospace') {
+  //     aerospaceScore++;
+  //   }
+  //   if (splitScore[i] == 'Legal') {
+  //     legalScore++;
+  //   }
+  //   if (splitScore[i] == 'Marketing') {
+  //     marketingScore++;
+  //   }
+  //   if (splitScore[i] == 'Telecomm') {
+  //     telecommScore++;
+  //   }
+  //   if (splitScore[i] == 'Energy') {
+  //     energyScore++;
+  //   }
+  //   if (splitScore[i] == 'Manufacturing') {
+  //     manufacturingScore++;
+  //   }
+  //   if (splitScore[i] == 'Education') {
+  //     educationScore++;
+  //   }
+  // }
+  // console.log(
+  //   healthScore,
+  //   businessScore,
+  //   pharmScore,
+  //   engineeringScore,
+  //   computertechScore,
+  //   aerospaceScore,
+  //   legalScore,
+  //   marketingScore,
+  //   telecommScore,
+  //   energyScore,
+  //   manufacturingScore,
+  //   educationScore
+  // );
 
   currentQuestion++;
 
@@ -188,7 +188,7 @@ function loadNextQuestion() {
         <a href="/quicksearch" class="qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Search Jobs in this Industry</a>
         <button class="restart">Restart Quiz</button>
          `;
-      return console.log(maxEl);
+      return;
     }
   }
   generateQuestions(currentQuestion);
@@ -198,10 +198,10 @@ const dbResults = (maxEl) => {
   const quizTaken = 'true';
   const quizResults = maxEl;
   const dbId = document.querySelector('.user-id').id;
-  console.log(dbId);
-  console.log(maxEl);
+  // console.log(dbId);
+  // console.log(maxEl);
   if (maxEl != 'null') {
-    console.log(maxEl);
+    // console.log(maxEl);
     const response = fetch(`/api/users/quiz/${dbId}`, {
       method: 'PUT',
       headers: {

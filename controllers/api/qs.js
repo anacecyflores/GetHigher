@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Career } = require('../../models');
 
 router.post('/quicksearch', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   Career.create({
     title: req.body.title,
@@ -17,14 +17,12 @@ router.post('/quicksearch', (req, res) => {
   })
     .then((qsDB) => res.json(qsDB))
     .catch((err) => {
-      console.log('error caught');
       console.error(err);
       res.status(500).json(err);
     });
 });
 
 router.delete('/:id', async (req, res) => {
-  console.log(req.params.id);
   const savedJob = Career.destroy({
     where: {
       id: req.params.id,
