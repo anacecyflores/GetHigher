@@ -10,10 +10,10 @@ const alignments = {
 
 const jobs = {
   HEALTHCARE: 'Healthcare',
-  BUSINESS_FINANCE: 'Businessfinance',
+  BUSINESS_FINANCE: 'Business',
   PHARMACEUTICAL: 'Pharmaceutical',
   ENGINEERING: 'Engineering',
-  COMPUTER_TECH: 'Computertech',
+  COMPUTER_TECH: 'Technology',
   AEROSPACE: 'Aerospace',
   LEGAL: 'Legal',
   MARKETING: 'Marketing',
