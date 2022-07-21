@@ -195,21 +195,21 @@ function loadNextQuestion() {
 }
 
 const dbResults = (maxEl) => {
-  const quizTaken = 1;
+  const quizTaken = 'true';
   const quizResults = maxEl;
   const dbId = document.querySelector('.user-id').id;
   console.log(dbId);
   console.log(maxEl);
   if (maxEl != 'null') {
     console.log(maxEl);
-    const response = fetch(`/api/qs/${dbId}`, {
+    const response = fetch(`/api/users/quiz/${dbId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        quiz_taken: quizTaken,
-        quiz_results: quizResults,
+        quizTaken: quizTaken,
+        quizResults: quizResults,
       }),
     });
     return response;

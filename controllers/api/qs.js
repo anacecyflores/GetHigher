@@ -36,29 +36,4 @@ router.delete('/:id', async (req, res) => {
   res.status(200);
 });
 
-router.put('/:id', async (req, res) => {
-  try {
-    console.log(req.params.id);
-    console.log(req.body.quiz_taken);
-    console.log(req.body.quiz_results);
-    const userInfo = User.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-      quiz_taken: req.body.quiz_taken,
-      quiz_results: req.body.quiz_results,
-    });
-    if (!userInfo) {
-      console.log("doesn't work");
-      res
-        .status(404)
-        .json({ message: 'Unable to find user to update quiz results' });
-    }
-    console.log('works');
-    res.status(200);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 module.exports = router;

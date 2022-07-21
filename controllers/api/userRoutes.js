@@ -57,4 +57,20 @@ router.post('/logout', (req, res) => {
   }
 });
 
+router.put('/quiz/:id', async (req, res) => {
+  console.log(req.params.id, req.session);
+  console.log(req.body.quiz_taken);
+  console.log(req.body.quiz_results);
+  User.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+    quizTaken: req.body.quizTaken,
+    quizResults: req.body.quizResults,
+  });
+
+  console.log('200');
+  res.status(200).json(req.body);
+});
+
 module.exports = router;
