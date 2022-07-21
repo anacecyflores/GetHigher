@@ -176,7 +176,7 @@ function loadNextQuestion() {
           maxCount = modeMap[el];
         }
       }
-      return maxEl, escapeFunction(maxEl);
+      return maxEl, escapeFunction(maxEl), dbResults(maxEl);
     }
     function escapeFunction(maxEl) {
       container.style.display = 'none';
@@ -188,11 +188,33 @@ function loadNextQuestion() {
         <a href="/quicksearch" class="qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Search Jobs in this Industry</a>
         <button class="restart">Restart Quiz</button>
          `;
-      return;
+      return console.log(maxEl);
     }
   }
   generateQuestions(currentQuestion);
 }
+
+const dbResults = (maxEl) => {
+  const quizTaken = 1;
+  const quizResults = maxEl;
+  const dbId = document.querySelector('.user-id').id;
+  console.log(dbId);
+  console.log(maxEl);
+  if (maxEl != 'null') {
+    console.log(maxEl);
+    const response = fetch(`/api/qs/${dbId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        quiz_taken: quizTaken,
+        quiz_results: quizResults,
+      }),
+    });
+    return response;
+  }
+};
 
 // //Function to load previous question
 // function loadPreviousQuestion() {
