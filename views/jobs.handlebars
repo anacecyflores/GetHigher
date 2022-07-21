@@ -143,42 +143,45 @@
 <script src="./js/destroy.js"></script>
 <script>
 function initMap() {
-let lat = 41.8781;
-let lng = -87.6298
-let coordLength = document.querySelectorAll('.lat').length
-//console.log(document.querySelectorAll('.lat')[0].innerText)
-//console.log(document.querySelectorAll('.lng')[0].innerText)
-
-
-
+  let exCoordLat = 41.8781;
+  let exCoordLng = -87.6298;
   let options = {
     zoom: 8,
     mapId: '90a0e5faef41b176',
-    center: { lat: +lat, lng: +lng },
+    center: { lat: exCoordLat, lng: exCoordLng },
   };
 
   let map = new google.maps.Map(document.getElementById('map'), options);
 
-  addMarker(lat, lng);
-  function addMarker(lat, lng) {
+  //amount of favorited jobs pulled
+  let coordLength = document.querySelectorAll('.lat').length
 
-    //for (i=0; i<coordLength; i++) {
-    //console.log(document.querySelectorAll('.lat')[i].innerText)
-    //console.log(document.querySelectorAll('.lng')[i].innerText)
-    //let latArr = document.querySelectorAll('.lat')[i].innerText
-    //let lngArr = document.querySelectorAll('.lng')[i].innerText
-  
+  //add markers is there is at least one saved job
+  if (coordLength > 0) {
+  for (i=0; i<coordLength; i++) {
+    let lat = document.querySelectorAll('.lat')[i].innerText;
+    let lng = document.querySelectorAll('.lng')[i].innerText;
+    let markers = 
+      {
+        coords: { lat: +lat, lng: +lng },
+        iconImg:
+          'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        content: '<h3>Location ex</h3>',
+      }
 
-    let marker = new google.maps.Marker({
-      position: { lat: +lat, lng: +lng },
-      map: map,
-      icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-    });
-    //marker.addListener('click', function () {
-      //infoWindow.open(map, marker);
-      //});
+      let marker = new google.maps.Marker({
+        position: markers.coords,
+        map: map,
+        icon: markers.iconImg,
+      });
+
+      //marker.addListener('click', function () {
+        //infoWindow.open(map, marker);
+        //});
     }
   }
+}
+
 
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4OVkkkHA93ViisjQDq3Fx_oAtNuevgR0&callback=initMap"></script>
