@@ -2,3 +2,17 @@
   height: 400px;
   width: 600px;
 }
+
+@media screen and (max-width: 390px) {
+  #map {
+    height: 300px;
+    width: 390px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #map {
+    height: 300px;
+    width: 490px;
+  }
+}

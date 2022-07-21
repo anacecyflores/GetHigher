@@ -101,11 +101,13 @@
     </header>
 
     <main id="main" class="bg-gray-100">
-      <!-- Render the sub layout -->    
-      {{!-- --------- Scripts for Quick Search must stay in main above body---------------- --}}
+      <!-- Render the sub layout -->   
+
+      {{!-- --------- Scripts for Quick Search, and Resume Upload must stay in main above body---------------- --}}
       {{!-- <script src="/public/js/uploadres.js"></script> --}}
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
       <script src='https://code.jquery.com/jquery-3.6.0.js'></script>
+      {{!-- //script for mobile menu close and open --}}
       <script>
         const burger = document.getElementById('mobile_burger');
         const menu = document.getElementById('mobile-menu');
@@ -114,7 +116,9 @@
             menu.classList.toggle("hidden");
         })
       </script>
+
       {{{ body }}}    
+      
     </main>
   
     <!-- Render script for logged in users only -->

@@ -1,3 +1,4 @@
+{{!-- Announcement Banner --}}
 <div class="bg-indigo-600">
   <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between flex-wrap">
@@ -19,15 +20,17 @@
   </div>
 </div>
 
+{{!-- main content --}}
 <div class=" max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-<!-- Replace with your content -->
+    {{!-- Welcome --}}
     <div class="px-4 py-6 sm:px-0">
         <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span class="block xl:inline">Welcome</span>
             <span class="block text-indigo-600 xl:inline">{{firstName}} {{lastName}}!</span>
         </h1>
     </div>
-{{!-- Start Upcoming Events Calendar --}}
+
+    {{!-- Upcoming Events Calendar --}}
     <div class="px-4 py-6 sm:px-0">
         <h1 class="mb-4 text-3xl font-bold text-gray-900">Events</h1>
         <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
@@ -35,8 +38,8 @@
             <a href="/calendar" class="mb-4 ml-4 mt-4 qs-btn previous inline-flex items-center justify-center px-2.0 py-1.5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"id="qs-btn" style="">Check out your upcoming events!</a>
         </div>
     </div>
-{{!-- End Calendar --}}
 
+    {{!-- Quiz Results --}}
     <div class="px-4 py-6 sm:px-0">
         <h1 class="mb-4 text-3xl font-bold text-gray-900">Quiz Results</h1>
         <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
@@ -48,6 +51,7 @@
         </div>
     </div>
 
+    {{!-- Saved Jobs --}}
     <div class="px-4 py-6 sm:px-0">
     <h1 class="mb-4 text-3xl font-bold text-gray-900">Saved Jobs</h1>
     <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
@@ -72,7 +76,6 @@
       {{/each}}
     </div>
   </div>
-    <!-- /End replace -->
 </div>
 
 {{!-- footer --}}
@@ -132,6 +135,7 @@
     </footer>
 </div>
 
+{{!-- Script for Dark Mode --}}
 <script>
   let auto = document.getElementById("auto");
   let light = document.getElementById("light");
@@ -158,4 +162,3 @@
       }
   };
 </script>
-        
