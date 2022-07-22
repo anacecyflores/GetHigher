@@ -67,7 +67,7 @@ function searchJobs(position, location) {
             `<p class = "ml-4 mt-4 ext-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3xl job-title" value = "job_title">`
           );
           let jobEmployer = $(
-            `<p class = "ml-4 job-employer" value= "employer_name">`
+            `<p class = "ml-4 job-employer text-base text-indigo-600 font-semibold tracking-wide" value= "employer_name">`
           );
           let jobCity = $(`<p class = "ml-4 job-city" value = "job_city">`);
           let jobState = $(`<p class = "ml-4 job-state" value = "job_state">`);
