@@ -7,8 +7,8 @@ const { Career, User } = require('../../models');
 router.get('/', (req, res) =>
   Career.findAll()
     .then((jobs) => {
-      console.log(jobs);
-      console.log(req);
+      // console.log(jobs);
+      // console.log(req);
       res.sendStatus(200);
     })
     .catch((err) => console.log(err))

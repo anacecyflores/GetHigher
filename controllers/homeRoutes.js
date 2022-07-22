@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 //main page route
 
 router.get('/', async (req, res) => {
-  console.log(req);
+  // console.log(req);
   try {
     // Get all jobs and JOIN with user data
     const jobsData = await Career.findAll({
@@ -70,7 +70,7 @@ router.get('/profile', withAuth, async (req, res) => {
         id: req.session.user_id,
       },
     });
-    console.log(profInfo);
+    // console.log(profInfo);
 
     res.render('profile', {
       ...user,
@@ -142,7 +142,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 router.get('/jobs', withAuth, async (req, res) => {
-  console.log(req.session.user_id);
+  // console.log(req.session.user_id);
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -151,7 +151,7 @@ router.get('/jobs', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(user);
+    // console.log(user);
 
     Career.findAll({
       raw: true,
