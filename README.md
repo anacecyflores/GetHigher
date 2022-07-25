@@ -12,8 +12,13 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/anacecyflores1/GetHigher)
 
 # Concept:
-This project will use at least two different job search databases to deliver the job posting feature to the user based on location and career option. Using a personality/aptitude test the user will be redirected to a set of 2-3 career options that fit their personality in which routing and template will need to be carefully aligned. 
-A key feature of our project is the login portion for the user to keep their progress, information and job interests saved for their next visit. Lastly, the use of multiple APIs will be essential to its functionality and interactivity. Having a Google Calendar added will help the user keep track of job interviews, networking events, etc. The job search APIs facilitate the job seeking portion for the user to stay in our site alone instead of navigating through various job sites which creates the “all in one place” feel that will highlight our site over other sites.
+This project used a Google Job Search API to deliver the job posting feature to the user based on location and career option. 
+Once the user takes our carefully designed personality/aptitude test the user will be recommended a career option that will fit their personality. 
+
+A key feature of our project is the login portion for the user to keep their progress, information and job interests saved for their next visit which is stored into our very own user information database.
+
+The job search api, Google Map, individualized quiz, calendar for reminders and dashboard  facilitate the job seeking experience for the user to stay in our site alone instead of navigating through various job sites/applications which creates the “all in one place” feel that will highlight our site over other sites.
+
 
 # Roles:
 <br>
