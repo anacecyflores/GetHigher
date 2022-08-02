@@ -183,84 +183,84 @@ const questions = [
       },
     },
   },
-  // {
-  //   question: 'My work must regularly introduce new problems for me to solve',
-  //   aptitudes: {
-  //     [alignments.STRONGLY_AGREE]: {
-  //       [jobs.BUSINESS_FINANCE]: 1,
-  //       [jobs.ENGINEERING]: 1,
-  //       [jobs.COMPUTER_TECH]: 1,
-  //       [jobs.LEGAL]: 1,
-  //     },
-  //     [alignments.AGREE]: {
-  //       [jobs.EDUCATION]: 1,
-  //       [jobs.MARKETING]: 1,
-  //     },
-  //     [alignments.NEUTRAL]: {},
-  //     [alignments.DISAGREE]: {
-  //       [jobs.AEROSPACE]: 1,
-  //       [jobs.PHARMACEUTICAL]: 1,
-  //     },
-  //     [alignments.STRONGLY_DISAGREE]: {
-  //       [jobs.TELECOMM]: 1,
-  //       [jobs.ENERGY]: 1,
-  //       [jobs.MANUFACTURING]: 1,
-  //       [jobs.HEALTHCARE]: 1,
-  //     },
-  //   },
-  // },
-  // {
-  //   question: 'I value working in calm environment where I know what to expect',
-  //   aptitudes: {
-  //     [alignments.STRONGLY_AGREE]: {
-  //       [jobs.COMPUTER_TECH]: 1,
-  //       [jobs.BUSINESS_FINANCE]: 1,
-  //       [jobs.LEGAL]: 1,
-  //     },
-  //     [alignments.AGREE]: {
-  //       [jobs.MARKETING]: 1,
-  //       [jobs.EDUCATION]: 1,
-  //       [jobs.PHARMACEUTICAL]: 1,
-  //       [jobs.TELECOMM]: 1,
-  //     },
-  //     [alignments.NEUTRAL]: {},
-  //     [alignments.DISAGREE]: {
-  //       [jobs.AEROSPACE]: 1,
-  //       [jobs.ENERGY]: 1,
-  //       [jobs.ENGINEERING]: 1,
-  //     },
-  //     [alignments.STRONGLY_DISAGREE]: {
-  //       [jobs.HEALTHCARE]: 1,
-  //       [jobs.MANUFACTURING]: 1,
-  //     },
-  //   },
-  // },
-  // {
-  //   question: 'I can learn and understand new things quickly.',
-  //   aptitudes: {
-  //     [alignments.STRONGLY_AGREE]: {
-  //       [jobs.BUSINESS_FINANCE]: 1,
-  //       [jobs.COMPUTER_TECH]: 1,
-  //       [jobs.MARKETING]: 1,
-  //       [jobs.ENGINEERING]: 1,
-  //     },
-  //     [alignments.AGREE]: {
-  //       [jobs.HEALTHCARE]: 1,
-  //       [jobs.PHARMACEUTICAL]: 1,
-  //       [jobs.LEGAL]: 1,
-  //       [jobs.EDUCATION]: 1,
-  //     },
-  //     [alignments.NEUTRAL]: {},
-  //     [alignments.DISAGREE]: {
-  //       [jobs.AEROSPACE]: 1,
-  //     },
-  //     [alignments.STRONGLY_DISAGREE]: {
-  //       [jobs.TELECOMM]: 1,
-  //       [jobs.ENERGY]: 1,
-  //       [jobs.MANUFACTURING]: 1,
-  //     },
-  //   },
-  // },
+  {
+    question: 'My work must regularly introduce new problems for me to solve',
+    aptitudes: {
+      [alignments.STRONGLY_AGREE]: {
+        [jobs.BUSINESS_FINANCE]: 1,
+        [jobs.ENGINEERING]: 1,
+        [jobs.COMPUTER_TECH]: 1,
+        [jobs.LEGAL]: 1,
+      },
+      [alignments.AGREE]: {
+        [jobs.EDUCATION]: 1,
+        [jobs.MARKETING]: 1,
+      },
+      [alignments.NEUTRAL]: {},
+      [alignments.DISAGREE]: {
+        [jobs.AEROSPACE]: 1,
+        [jobs.PHARMACEUTICAL]: 1,
+      },
+      [alignments.STRONGLY_DISAGREE]: {
+        [jobs.TELECOMM]: 1,
+        [jobs.ENERGY]: 1,
+        [jobs.MANUFACTURING]: 1,
+        [jobs.HEALTHCARE]: 1,
+      },
+    },
+  },
+  {
+    question: 'I value working in calm environment where I know what to expect',
+    aptitudes: {
+      [alignments.STRONGLY_AGREE]: {
+        [jobs.COMPUTER_TECH]: 1,
+        [jobs.BUSINESS_FINANCE]: 1,
+        [jobs.LEGAL]: 1,
+      },
+      [alignments.AGREE]: {
+        [jobs.MARKETING]: 1,
+        [jobs.EDUCATION]: 1,
+        [jobs.PHARMACEUTICAL]: 1,
+        [jobs.TELECOMM]: 1,
+      },
+      [alignments.NEUTRAL]: {},
+      [alignments.DISAGREE]: {
+        [jobs.AEROSPACE]: 1,
+        [jobs.ENERGY]: 1,
+        [jobs.ENGINEERING]: 1,
+      },
+      [alignments.STRONGLY_DISAGREE]: {
+        [jobs.HEALTHCARE]: 1,
+        [jobs.MANUFACTURING]: 1,
+      },
+    },
+  },
+  {
+    question: 'I can learn and understand new things quickly.',
+    aptitudes: {
+      [alignments.STRONGLY_AGREE]: {
+        [jobs.BUSINESS_FINANCE]: 1,
+        [jobs.COMPUTER_TECH]: 1,
+        [jobs.MARKETING]: 1,
+        [jobs.ENGINEERING]: 1,
+      },
+      [alignments.AGREE]: {
+        [jobs.HEALTHCARE]: 1,
+        [jobs.PHARMACEUTICAL]: 1,
+        [jobs.LEGAL]: 1,
+        [jobs.EDUCATION]: 1,
+      },
+      [alignments.NEUTRAL]: {},
+      [alignments.DISAGREE]: {
+        [jobs.AEROSPACE]: 1,
+      },
+      [alignments.STRONGLY_DISAGREE]: {
+        [jobs.TELECOMM]: 1,
+        [jobs.ENERGY]: 1,
+        [jobs.MANUFACTURING]: 1,
+      },
+    },
+  },
   // {
   //   question: 'I can easily solve problems.',
   //   aptitudes: {

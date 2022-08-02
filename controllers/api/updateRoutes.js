@@ -15,6 +15,8 @@ router.put('/:id', async (req, res) => {
     city: req.body.city,
     state: req.body.state,
     zipcode: req.body.zipcode,
+    website: req.body.website,
+    about: req.body.about,
   });
   if (!userInfo) {
     res.status(404).json({ message: 'Unable to locate user info to update' });

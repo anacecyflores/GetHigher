@@ -10,6 +10,9 @@ const updatePersonal = (e) => {
   const zipcode = document.querySelector('#postal-code').value.trim();
   const country = document.querySelector('#country').value.trim();
 
+  const website = document.querySelector('#website').value.trim();
+  const about = document.querySelector('#about').value.trim();
+
   if (btnId == 'p-sv-btn') {
     const response = fetch(`/api/update/${dbId}`, {
       method: 'PUT',
@@ -25,6 +28,20 @@ const updatePersonal = (e) => {
         city,
         state,
         zipcode,
+      }),
+    });
+    return response;
+  }
+
+  if (btnId == 'w-sv-btn') {
+    const response = fetch(`/api/update/${dbId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        website,
+        about,
       }),
     });
     return response;
